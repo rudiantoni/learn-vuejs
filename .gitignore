@@ -1,0 +1,75 @@
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+*.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+
+# Gradle
+.gradle
+
+# Inclusions
+!lib/**
+
+# Compiled Files
+*.class
+bin/
+build/
+/bin1/
+java/build/**
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+**/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+*.sublime-workspace
+
+# Visual Studio Code
+**/.vscode/
+**/.history/*
+
+# Miscellaneous
+**/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
+Thumbs.db
+
+# Non versioned properties file
+**/resources/application-nv*.properties
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
