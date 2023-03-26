@@ -33,3 +33,35 @@ Referência: [Quick Start | Vue.js](https://vuejs.org/guide/quick-start.html#usi
 ```javascript
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 ```
+
+Adicionar um elemento no corpo do HTML com um determinado id rootElementId (app) para poder indicar o elemento raiz da página:
+
+```html
+<div id="app"></div>
+```
+
+No seu script JS (adicionado por arquivo externo, tag script, etc.):
+- Criar um objeto principal da aplicação ObjName (MyNameApp)
+- Criar um método data() dentro do ObjName que retorne um objeto qualquer com algumas propriedades (essas propriedades serão acessíveis pelo HTML)
+- Chamar a função Vue.createApp(ObjName).mount('#rootElementId') para criar a aplicação com o VueJS.
+
+```javascript
+const MyNameApp = {
+  data() {
+    return {
+      name: "João",
+      age: "30"
+    }
+  }
+}
+
+Vue.createApp(MyNameApp).mount('#app')
+```
+
+No HTML, adicione os valores para que seja tudo visível:
+
+```html
+<div id="app">
+  <p>O meu nome é: {{ name }}, e tenho {{ age }} anos.</p>
+</div>
+```
