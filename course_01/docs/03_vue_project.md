@@ -246,4 +246,127 @@ Seguindo a lógica, o exemplo funcionará dessa maneira:
 6. Passados os 4 segundos da chamada da função pelo hook *mounted*, o valor será alterado para *João* e a exibição será atualizada novamente.
 7. O último valor da variável será *João*.
 
+## Hierarquia de componentes
 
+- É comum *componentes terem outros componentes* que dependem deles.
+- Ou seja, criamos uma *árvore de componentes*.
+- Precisamos ter cuidade para isso não virar uma *bagunça*.
+- Com essa divisão de componentes em subcomponentes, separamos ainda mais as responsabilidades de cada um dos componentes.
+
+
+### Componentização
+
+O objetivo da componentização é reutilizar código. Pois a repetição exagerada pode deixá-lo confuso, ou, no mínimo, difícil de manter.
+
+Porém temos de ter cautela ao usar esse conceito, para não exagerarmos e acabarmos caindo na ideia de que "componentizar tudo" é a solução. Nem sempre, se o código vai ser usado em apenas um lugar, não tem porque ele ser componentizado.
+
+O conceito utilizado é: sempre que o código for utilizado no mínimo em dois lugares diferentes, aí então ele deve ser componentizado.
+
+Para exemplificar, vamos criar um componente *Pessoa* básico.
+
+```html
+<template>
+  <h2>Essa é a descrição da pessoa: {{ nome }} </h2>
+</template>
+
+<script>
+export default {
+  name: 'Pessoa',
+  data() {
+    return {
+      nome: 'Rudi'
+    }
+  }
+}
+</script>
+```
+
+E vamos utilizá-lo no componente *App*:
+
+```html
+<template>
+  <Pessoa />
+</template>
+
+<script>
+import Pessoa from './components/Pessoa.vue';
+
+export default {
+  name: 'App',
+  components: {
+    Pessoa
+  }
+}
+</script>
+```
+
+Pronto, ele já deve estar visível na página principal.
+
+Vamos agora alterar a exibição do componente *Pessoa*:
+
+```html
+<h2>Essa é a descrição da pessoa: {{ nome }} </h2>
+<p>Estou trabalhando no momento.</p>
+<p>Utilizo as seguintes tecnologias:</p>
+<ul>
+  <li>JavaScript</li>
+  <li>PHP</li>
+  <li>Python</li>
+  <li>Java</li>
+  <li>Kotlin</li>
+</ul>
+```
+
+Neste exemplo, o componente *Pessoa* possui um título *h2* e outros elementos que indicam ali dados sobre a pessoa propriamente dita. Vamos componentizar esses dados.
+
+Para isso, criaremos um novo componente, Info:
+
+```html
+<template>
+</template>
+
+<script>
+export default {
+  name: 'Info'
+}
+</script>
+```
+
+Todo o conteúdo da exibição do componente *Pessoa* deve ser trazido para a exibição do componente *Info*, exceto o elemento *h2*, deixando a exibição do *Info* assim:
+
+```html
+<p>Estou trabalhando no momento.</p>
+<p>Utilizo as seguintes tecnologias:</p>
+<ul>
+  <li>JavaScript</li>
+  <li>PHP</li>
+  <li>Python</li>
+  <li>Java</li>
+  <li>Kotlin</li>
+</ul>
+```
+
+Vamos importar o componente *Info* e utilizá-lo no componente *Pessoa*:
+
+```html
+<template>
+  <h2>Essa é a descrição da pessoa: {{ nome }} </h2>
+  <Info />
+</template>
+
+<script>
+import Info from './Info.vue';
+
+export default {
+  name: "Pessoa",
+  data() {
+    return {
+        nome: "Rudi"
+    };
+  },
+  components: {
+    Info
+  }
+}
+</script>
+```
