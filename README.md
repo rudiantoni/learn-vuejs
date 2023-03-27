@@ -4,6 +4,10 @@ Este repositório contém projetos referentes a minha aprendizagem pessoal sobre
 
 ## Curso 1
 
+Este curso foi feito com base no conteúdo disponibilizado pelo Curso de Vue 3, disponibilizado através do site Youtube, no canal Matheus Battisti - Hora de Codar.
+
+Referências no fim da seção.
+
 ### Conteúdo e projetos relacionados
 
 Todos os projetos desenvolvidos possuem o objetivo único de aprender e praticar. Aqui segue uma lista do conteúdo teórico criado e cada projeto relacionado a ele quando aplicável:
@@ -14,6 +18,13 @@ Todos os projetos desenvolvidos possuem o objetivo único de aprender e praticar
   - [O CLI do Vue, componentes e dados](./course_01/docs/03_vue_project.md) Projeto: [03_vue_project](./course_01/03_vue_project/)
   - [Hooks, diretivas, componentes e argumentos](./course_01/docs/04_hooks_dirs_comps_args.md) Projeto: [04_hooks_dirs_comps_args](./course_01/04_hooks_dirs_comps_args/)
 
+### Observações
+
+#### Inicialização de projetos usando CDN do VueJS com servidor HTTP
+
+Alguns projetos não estão usando a CLI do VueJS, portanto foram executados através de um servidor HTTP Apache em um container Docker, para iniciá-los, basta navegar até a pasta do curso `cd course_01` e iniciar a aplicação com `sh [project_name].sh` e acessar através de http://localhost. É importante observar que ele usa a porta 80, então se tiver algo sendo executado nessa porta a aplicação não vai subir. Ao término da utilização, use Ctrl + C para cancelar e remover o container. Os valores de *[project_name]* podem ser:
+- [01_iniciando_vuejs_cdn](./course_01/01_iniciando_vuejs_cdn/)
+- [02_data_binding](./course_01/02_data_binding/)
 
 ### Referências
 
@@ -41,10 +52,3 @@ Este curso foi feito através do conteúdo apresentado no site [Youtube](http://
   - nome_aula: []()
   - nome_aula: []()  
 
-### Observações
-
-#### Inicialização de projetos usando CDN do VueJS com servidor HTTP
-
-Alguns projetos não estão usando a CLI do VueJS, portanto foram executados através de um servidor HTTP Apache em um container Docker, para iniciá-los, basta navegar até a pasta do curso `cd course_01` e iniciar a aplicação com `sh [project_name].sh` e acessar através de http://localhost. É importante observar que ele usa a porta 80, então se tiver algo sendo executado nessa porta a aplicação não vai subir. Ao término da utilização, use Ctrl + C para cancelar e remover o container. Os valores de *[project_name]* podem ser:
-- [01_iniciando_vuejs_cdn](./course_01/01_iniciando_vuejs_cdn/)
-- [02_data_binding](./course_01/02_data_binding/)
