@@ -34,5 +34,5 @@ Todos os projetos desenvolvidos possuem o objetivo único de aprender e praticar
 - Conteúdo teórico
   - [Iniciando com VueJS e CDN](./course_01/docs/01_iniciando_vuejs_cdn.md) Projeto: [01_iniciando_vuejs_cdn](./course_01/01_iniciando_vuejs_cdn/)
   - [Input e data binding](./course_01/docs/02_data_binding.md) Projeto: [02_data_binding](./course_01/02_data_binding/)
-  - [O CLI do Vue, componentes e dados](./course_01/docs/03_vue_project.md) Projeto: [xxx](xxx)
-  - [Hooks, diretivas, componentes e argumentos](./course_01/docs/04_hooks_dirs_comps_args.md) Projeto: [xxx](xxx)
+  - [O CLI do Vue, componentes e dados](./course_01/docs/03_vue_project.md) Projeto: [03_vue_project](./course_01/03_vue_project/)
+  - [Hooks, diretivas, componentes e argumentos](./course_01/docs/04_hooks_dirs_comps_args.md) Projeto: [04_hooks_dirs_comps_args](./course_01/04_hooks_dirs_comps_args/)
