@@ -1,4 +1,4 @@
-# O CLI do Vue
+# O CLI do Vue e componentes
 
 - Conteúdo
   - [atualizar](atualizar)
@@ -34,3 +34,55 @@ Desde o primeiro comando até o último, foram criados alguns arquivos já com a
   - Pasta *src*: é onde fica o código da aplicação.
     - Pasta *assets*: Arquivos estáticos do projeto.
     - Pasta *components*: Aqui é onde podemos adicionar os componentes da aplicação.
+
+## Componentes
+
+- É por meio de componentes que podemos dividir o nosso layout em partes.
+- Cada componente tem a sua responsabilidade, por exemplo: um componente que é uma tabela e outro que é um rodapé.
+- Dividir as entidades desta maneira deixa o projeto com uma separação de responsabilidade maior.
+- Cada um tendo o seu CSS e também os dados que manipula.
+
+Primeiro, crie um arquivo com a extensão .vue na pasta src/components. Neste exemplo vamos criar um arquivo *PrimeiroComponente.vue*.
+
+Adicione o seguinte conteúdo no arquivo *PrimeiroComponente.vue*:
+
+```html
+<template>
+  <h1>Olá Vue!</h1>
+</template>
+
+<script>
+  export default {
+    name: 'PrimeiroComponente'
+  }
+</script>
+```
+
+O que está no elemento *template* é o conteúdo que será enviado ao HTML. E no elemento *script* é o código JavaScript a ser executado.
+
+O objeto exportado precisa conter a propriedade *name*, que indica para o Vue o nome do componente.
+
+Agora, vamos usar este componente em algum lugar, neste exemplo vamos usá-lo no componente *App.vue*, que é o componente principal criado pelo CLI (NPM create-vue). 
+
+```html
+<script>
+  import PrimeiroComponente from './components/PrimeiroComponente.vue'
+  
+  export default {
+    name: 'App',
+    components: {
+      PrimeiroComponente
+    }
+  }
+</script>
+
+<template>
+  <PrimeiroComponente />
+</template>
+```
+
+Aqui, no *script*, primeiro importamos o componente *PrimeiroComponente* criado no arquivo *PrimeiroComponente.vue* para utilizá-lo no componente atual, *App*.
+
+Depois, exportamos o componente com o seu nome através da propriedade *name* e expomos o componente através da propriedade *components* que foi importado para usar no *template*.
+
+Por último, no *template*, chamamos o componente como uma tag HTML normal, mas o nome deve ser o nome exato do componente importado ou com kebab-case, ficando *primeiro-componente*.
