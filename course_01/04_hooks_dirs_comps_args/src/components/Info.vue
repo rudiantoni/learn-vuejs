@@ -10,10 +10,13 @@
     <li>Kotlin</li>
   </ul>
   <p v-show="mostrar_email">Mande uma mensagem para: {{ email }}</p>
+  <p>Para acessar meu portfólio <a v-bind:href="meu_link" v-bind:title="link_title" target="_blank" >basta clicar aqui</a>.</p>
+  <Picture />
 </template>
 
 <script>
 import InputSubmit from './form/InputSubmit.vue';
+import Picture from './Picture.vue';
 
 export default {
   name: "Info",
@@ -21,9 +24,14 @@ export default {
     return {
       esta_trabalhando: true,
       mostrar_email: true,
-      email: 'email@teste.com'
+      email: 'email@teste.com',
+      meu_link: 'https://www.google.com',
+      link_title: 'Ir para o meu portfólio.'
     };
   },
-  components: { InputSubmit }
+  components: {
+    InputSubmit,
+    Picture
+  }
 }
 </script>
