@@ -45,31 +45,49 @@ java/build/**
 /out-tsc
 /bazel-out
 
-# Node
+# Node and bundlers
 **/node_modules
-npm-debug.log
-yarn-error.log
+npm-debug.log*
+yarn-error.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
 
 # IDEs and editors
 *.sublime-workspace
 
 # Visual Studio Code
 **/.vscode/
+!**/.vscode/extensions.json
 **/.history/*
 
 # Miscellaneous
 **/.angular/cache
 .sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
+**/connect.lock
+**/coverage
+**/libpeerconnection.log
 testem.log
-/typings
+**/typings
+**/dist-ssr
+**/cypress/videos/
+**/cypress/screenshots/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Other logging
+logs
+*.log
 
 # System files
 Thumbs.db
 
 # Non versioned properties file
 **/resources/application-nv*.properties
+**/resources/application-nv*.yml
+**/resources/application-nv*.yaml
 
 # See http://help.github.com/ignore-files/ for more about ignoring files.

@@ -34,8 +34,11 @@ Desde o primeiro comando até o último, foram criados alguns arquivos já com a
   - Pasta *src*: é onde fica o código da aplicação.
     - Pasta *assets*: Arquivos estáticos do projeto.
     - Pasta *components*: Aqui é onde podemos adicionar os componentes da aplicação.
+    - Arquivo *App.vue*: Componente principal/inicial da aplicação.
+    - Arquivo *main.js*: Arquivo de script principal/inicial da aplicação.
+      - Caso queira desabilitar o estilo CSS padrão que já vem o com o Vue quando é usado o *create-vue*, basta comentar/remover a linha de importação de estilo CSS.
 
-## Componentes
+## Criando componentes
 
 - É por meio de componentes que podemos dividir o nosso layout em partes.
 - Cada componente tem a sua responsabilidade, por exemplo: um componente que é uma tabela e outro que é um rodapé.
@@ -86,3 +89,5 @@ Aqui, no *script*, primeiro importamos o componente *PrimeiroComponente* criado 
 Depois, exportamos o componente com o seu nome através da propriedade *name* e expomos o componente através da propriedade *components* que foi importado para usar no *template*.
 
 Por último, no *template*, chamamos o componente como uma tag HTML normal, mas o nome deve ser o nome exato do componente importado ou com kebab-case, ficando *primeiro-componente*.
+
+## Dados nos componentes
