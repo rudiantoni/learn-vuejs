@@ -16,7 +16,7 @@ Este curso foi feito através do conteúdo apresentado no site [Youtube](http://
   - nome_aula: [Curso de Vue 3: #05 - Criando componentes](https://www.youtube.com/watch?v=ec046jmrgXQ&ab_channel=MatheusBattisti-HoradeCodar) 
   - nome_aula: [Curso de Vue 3: #06 - Dados em componentes (data)](https://www.youtube.com/watch?v=_BXj6CwuL0Q&ab_channel=MatheusBattisti-HoradeCodar) 
   - nome_aula: [Curso de Vue 3: #07 - Entendendo os Lifecycle hooks (ciclo de vida)](https://www.youtube.com/watch?v=yzXOZZQPSeM&ab_channel=MatheusBattisti-HoradeCodar) 
-  - nome_aula: []() 
+  - nome_aula: [Curso de Vue 3: #08 - Hierarquia de componentes](https://www.youtube.com/watch?v=H5PopRSJBTY&ab_channel=MatheusBattisti-HoradeCodar) 
   - nome_aula: []() 
   - nome_aula: []() 
   - nome_aula: []() 

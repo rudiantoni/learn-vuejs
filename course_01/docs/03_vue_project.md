@@ -45,6 +45,8 @@ Desde o primeiro comando até o último, foram criados alguns arquivos já com a
 - Dividir as entidades desta maneira deixa o projeto com uma separação de responsabilidade maior.
 - Cada um tendo o seu CSS e também os dados que manipula.
 
+### Criação da estrutura básica
+
 Primeiro, crie um arquivo com a extensão .vue na pasta src/components. Neste exemplo vamos criar um arquivo *PrimeiroComponente.vue*.
 
 Adicione o seguinte conteúdo no arquivo *PrimeiroComponente.vue*:
@@ -64,6 +66,8 @@ Adicione o seguinte conteúdo no arquivo *PrimeiroComponente.vue*:
 O que está no elemento *template* é o conteúdo que será enviado ao HTML. E no elemento *script* é o código JavaScript a ser executado.
 
 O objeto exportado precisa conter a propriedade *name*, que indica para o Vue o nome do componente.
+
+### Importando e utilizando o componente
 
 Agora, vamos usar este componente em algum lugar, neste exemplo vamos usá-lo no componente *App.vue*, que é o componente principal criado pelo CLI (NPM create-vue). 
 
@@ -123,3 +127,123 @@ Após isso, podemos chamar na view (elemento *template*) do componente, o dado e
 ```
 
 ## Life cycle hooks
+
+- Os *life cycle hooks* são eventos que podem ser ativados em determinadas partes da execução de um programa
+- Exemplo: *created*
+- Executa o código a partir do momento que o componente é criado.
+- Esses gatilhos são interessantes para alterar a aplicação em diversas etapas diferentes.
+
+### Usando o hook created()
+
+Para exemplificar o uso do hook *created*, primeiro criaremos um componente novo, chamado *LifeCycle.vue*, definindo um template e um script padrão básico. Onde no template é necessário uma variável do script, e essa variável possui um valor definido pela função *data*.
+
+```html
+<template>
+  <h1>Meu nome é: {{ name }}</h1>
+</template>
+
+<script>
+  export default {
+    name: 'LifeCycle',
+    data() {
+      return {
+        name: 'Ainda não sei'
+      }
+    }
+  }
+</script>
+```
+
+Agora vamos chamá-lo no componente *App*, primeiramente declarando na propriedade *components* da exportação para indicar que vamos usá-lo, e depois chamando no template.
+
+```html
+<template>
+  <LifeCycle />
+</template>
+
+<script>
+import LifeCycle from './components/LifeCycle.vue';
+
+export default {
+  name: 'App',
+  components: {
+    LifeCycle
+  }
+}
+</script>
+```
+
+Agora, se iniciarmos o projeto, vamos ver que o texto no elemento *h1* da aplicação está *Ainda não sei*, pois esse é o valor padrão definido pela função *data*.
+
+Então vamos agora fazer esse valor ser alterado assim que o componente for criado, imprimindo no console o valor anterior e o atual.
+
+Essa alteração deve ser feita no componente *LifeCycle*, adicionando o código do hook *created* na exportação, ficando da seguinte maneira.
+
+```html
+<template>
+  <h1>Meu nome é: {{ name }}</h1>
+</template>
+
+<script>
+  export default {
+    name: 'LifeCycle',
+    data() {
+      return {
+        name: 'Ainda não sei'
+      }
+    },
+    created() {
+      console.log('this.name', this.name)
+      this.name = "Rudi"
+      console.log('this.name', this.name)
+    }
+  }
+</script>
+```
+
+Agora, quando o componente for criado, a função *created()* será chamada, e assim ela alterará o valor da variável *name* para *Rudi*, atualizando automaticamente a exibição. É possível conferir os valores antes e depois da alteração com os *console.log()* inseridos no código.
+
+### Usando o hook mounted()
+
+Como exemplo, também usaremos o hook *mounted*, ele ocorre após o hook *created*. Vamos altearar o componente *LifeCycle* adicionando o hook, alterando novamente o valor da variável *name* sem deixar de imprimir os valores de antes e depois de sua alteração, deixando o script assim:
+
+```JavaScript
+export default {
+  name: 'LifeCycle',
+  data() {
+    return {
+      name: 'Ainda não sei'
+    }
+  },
+  created() {
+    console.log('created this.name', this.name)
+    this.name = "Rudi"
+    console.log('created this.name', this.name)
+  },
+  mounted() {
+    console.log('mounted this.name', this.name)
+    this.name = "João"
+    console.log('mounted this.name', this.name)
+  }
+}
+```
+
+O que aconteceu aqui foi:
+1. O valor da variável *name* era inicialmente *Ainda não sei*.
+2. Após o componente ter sido criado, a variável foi alterada para *Rudi*.
+3. Após o componente ter sido montado, a variável foi alterada para *Pedro*.
+
+### Simulando requisição assíncrona usando setTimeout
+
+Como as mudanças são feitas de maneira muito rápida, vamos atrasar as chamadas usando o setTimeout, que poderíamos usar para simular a realização de uma requisição HTTP assíncrona feita a uma API.
+
+Seguindo a lógica, o exemplo funcionará dessa maneira:
+1. O componente vai obter os dados através do hook *data*
+2. O componente vai ser criado e quando finalizar vai chamar a função *created*. Nesse caso vamos disparar uma função assíncrona que será executada apenas 2 segundos (2000 milissegundos) após a sua chamada.
+3. O componente vai ser mounted e quando finalizar vai chamar a função *mounted*. Nesse caso vamos disparar uma função assíncrona que será executada apenas 4 segundos (4000 milissegundos) após a sua chamada.
+4. Ainda estaremos vendo o valor inicial da variável que é *Ainda não sei*
+5. Passados os primeiros 2 segundos da chamada da função pelo hook *created*, o valor será alterado para *Rudi* e a exibição será atualizada.
+6. Passados os 4 segundos da chamada da função pelo hook *mounted*, o valor será alterado para *João* e a exibição será atualizada novamente.
+7. O último valor da variável será *João*.
+
+
