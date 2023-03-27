@@ -1,4 +1,4 @@
-# O CLI do Vue, componentes, dados e lifecycle hooks
+# O CLI do Vue, componentes e dados, lifecycle hooks e diretivas
 
 - Conteúdo
   - [atualizar](atualizar)
@@ -369,4 +369,94 @@ export default {
   }
 }
 </script>
+```
+
+## Diretivas
+
+- As *diretivas* em Vue são muitas.
+- Por exemplo *v-if*.
+- Pode mudar a exibição de uma parte do layout, baseada em uma condição.
+- *As diretivas são essenciais* para uma aplicação dinâmica.
+- Podemos alterar a lógica pelos valores inseridos em *data*.
+
+Nos valores utilizados nas diretivas, podem ser enviados quaisquer expressões JavaScript válidas.
+
+### Diretiva v-if
+
+A diretiva *v-if* renderiza um elemento/componente quando uma dada condição é verdadeira.
+
+Utilizando o componente *Info* previamente criado, vamos criar uma condição para que o elemento *p* seja renderizado apenas quando a variavel *esta_trabalhando* do *data* for *true*:
+
+```html
+<template>
+  <p v-if="esta_trabalhando">Estou trabalhando no momento.</p>
+  <p>Utilizo as seguintes tecnologias:</p>
+  <ul>
+    <li>JavaScript</li>
+    <li>PHP</li>
+    <li>Python</li>
+    <li>Java</li>
+    <li>Kotlin</li>
+  </ul>
+</template>
+
+<script>
+import InputSubmit from './form/InputSubmit.vue';
+
+export default {
+  name: "Info",
+  data() {
+    return {
+      esta_trabalhando: true
+    };
+  },
+  components: { InputSubmit }
+}
+</script>
+```
+
+Agora, sempre que a expressão dentro do *v-if* for *false*, o elemento *p* não será exibido. Neste caso, a condição é ligada diretamente a variável booleana *esta_trabalhando*.
+
+### Diretiva v-else
+
+A diretiva *v-else* renderiza um elemento sempre que o elemento *v-if* não renderizar. Ou seja, ele reproduz o fluxo de execução de código *if, else*.
+
+A observação aqui, é que o elemento com a diretiva *v-else* tem que ser um irmão imediato posterior do elemento com o *v-if*. Ou seja, quando quiser usar a diretiva *v-else*, tem que haver um elemento com a diretiva *v-if* anterior a ele, sem nenhum outro elemento/componente entre eles.
+
+Vamos novamente usar como exemplo o nosso componente *Info* alterando apenas sua exibição:
+
+```html
+<p v-if="esta_trabalhando">Estou trabalhando no momento.</p>
+<p v-else>Estou em busca de novas oportunidades!</p>
+```
+
+```javascript
+export default {
+  name: "Info",
+  data() {
+    return {
+      esta_trabalhando: true,
+    };
+  }
+}
+```
+
+### Diretiva v-show
+
+A diretiva *v-show* funciona igual o *v-if*, ela possui apenas um significado semântico diferente. É entendido que, se não for necessário usar o *v-else*, então o *v-if* pode ser substituído por um *v-show*.
+
+```html
+<p v-show="mostrar_email">Mande uma mensagem para: {{ email }}</p>
+```
+
+```javascript
+export default {
+  name: "Info",
+  data() {
+    return {
+      mostrar_email: true,
+      email: 'email@teste.com'
+    };
+  }
+}
 ```
