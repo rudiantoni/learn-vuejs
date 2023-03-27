@@ -1,4 +1,4 @@
-# O CLI do Vue e componentes
+# O CLI do Vue, componentes, dados e lifecycle hooks
 
 - Conteúdo
   - [atualizar](atualizar)
@@ -91,3 +91,35 @@ Depois, exportamos o componente com o seu nome através da propriedade *name* e 
 Por último, no *template*, chamamos o componente como uma tag HTML normal, mas o nome deve ser o nome exato do componente importado ou com kebab-case, ficando *primeiro-componente*.
 
 ## Dados nos componentes
+
+- Os componentes podem conter dados
+- Podemos *inicializar já com algum valor*, e também modificar durante a execução do programa
+- Os dados ficam em uma função chamada *data*
+- Esta função deve retornar os dados em *formato de objeto*
+
+Para poder utilizar dados nos componentes:
+
+Primeiro, no componente *PrimeiroComponente*, vamos exportar também a função *data()*, retornando as propriedades que serão os dados a serem acessados.
+
+Após isso, podemos chamar na view (elemento *template*) do componente, o dado exportado através do *double mustache* usando a intepolação de strings:
+
+```html
+<template>
+  <h1>Olá Vue!</h1>
+  <p>Meu nome é {{ name }} e trabalho como {{ profession }}.</p>
+</template>
+
+<script>
+  export default {
+    name: 'PrimeiroComponente',
+    data() {
+      return {
+        name: "Rudi",
+        profession: "Desenvolvedor"
+      }
+    }
+  }
+</script>
+```
+
+## Life cycle hooks
