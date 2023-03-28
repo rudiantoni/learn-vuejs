@@ -7,12 +7,12 @@
       - [Simulando requisição assíncrona usando setTimeout](#simulando-requisição-assíncrona-usando-settimeout)
   - [Hierarquia de componentes](#hierarquia-de-componentes)
       - [Componentização](#componentização)
-  - [Diretivas](#dire)
-      - [Diretiva v-if](#)
-      - [Diretiva v-else](#)
-      - [Diretiva v-show](#)
-  - [Argumentos](#)
-      - [Diretiva v-bind](#)
+  - [Diretivas](#diretivas)
+      - [Diretiva v-if](#diretiva-v-if)
+      - [Diretiva v-else](#diretiva-v-else)
+      - [Diretiva v-show](#diretiva-v-show)
+  - [Argumentos](#argumentos)
+      - [Diretiva v-bind](#diretiva-v-bind)
 
 ## Life cycle hooks
 

@@ -21,6 +21,8 @@ Todos os projetos desenvolvidos possuem o objetivo único de aprender e praticar
     - Projeto: [03_vue_project](./course_01/03_vue_project/)
   - [Hooks, diretivas, componentes e argumentos](./course_01/docs/04_hooks_dirs_comps_args.md)
     - Projeto: [04_hooks_dirs_comps_args](./course_01/04_hooks_dirs_comps_args/)
+  - [Métodos, CSS, listas e eventos](./course_01/docs/05_methods_and_events.md)
+    - Projeto: [05_methods_and_events](./course_01/05_methods_and_events/)
 
 ### Observações
 
@@ -50,9 +52,10 @@ Este curso foi feito através do conteúdo apresentado no site [Youtube](http://
     - [Curso de Vue 3: #08 - Hierarquia de componentes](https://www.youtube.com/watch?v=H5PopRSJBTY&ab_channel=MatheusBattisti-HoradeCodar)
     - [Curso de Vue 3: #09 - Conhecendo as diretivas (v-if, v-show, v-for)](https://www.youtube.com/watch?v=5XJHIoK_nHU&ab_channel=MatheusBattisti-HoradeCodar)
     - [Curso de Vue 3: #10 - Atributos dinâmicos](https://www.youtube.com/watch?v=FtcreaLDeWA&ab_channel=MatheusBattisti-HoradeCodar)
-  - nome_aula: [Curso de Vue 3: #11 - Métodos](https://www.youtube.com/watch?v=745aPtV_W60&ab_channel=MatheusBattisti-HoradeCodar)
+  - Métodos, CSS, listas e eventos
+    - [Curso de Vue 3: #11 - Métodos](https://www.youtube.com/watch?v=745aPtV_W60&ab_channel=MatheusBattisti-HoradeCodar)
+    - [Curso de Vue 3: #12 - CSS Scoped e CSS global](https://www.youtube.com/watch?v=kMpeOHM4fZg&ab_channel=MatheusBattisti-HoradeCodar)
   - nome_aula: []()
   - nome_aula: []()
   - nome_aula: []()
-  - nome_aula: []()  
 
