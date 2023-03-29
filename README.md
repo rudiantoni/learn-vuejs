@@ -23,6 +23,8 @@ Todos os projetos desenvolvidos possuem o objetivo único de aprender e praticar
     - Projeto: [04_hooks_dirs_comps_args](./course_01/04_hooks_dirs_comps_args/)
   - [Métodos, CSS, listas e eventos](./course_01/docs/05_methods_and_events.md)
     - Projeto: [05_methods_and_events](./course_01/05_methods_and_events/)
+  - [Reutilização de componentes, props e emit](./course_01/docs/06_advanced_components.md)
+    - Projeto: [06_advanced_components](./course_01/06_advanced_components/)
 
 ### Observações
 
@@ -58,7 +60,7 @@ Este curso foi feito através do conteúdo apresentado no site [Youtube](http://
     - [Curso de Vue 3: #13 - Renderização de listas (v-for)](https://www.youtube.com/watch?v=GvGYlBYtlAk&ab_channel=MatheusBattisti-HoradeCodar)
     - [Curso de Vue 3: #14 - Eventos (@submit e @click)](https://www.youtube.com/watch?v=h8Z-pRhe-dw&ab_channel=MatheusBattisti-HoradeCodar)
     - [Curso de Vue 3: #15 - Múltiplos eventos](https://www.youtube.com/watch?v=AKXG0SblA1w&ab_channel=MatheusBattisti-HoradeCodar)
-  - nome_aula
+  - Reutilização de componentes, props e emit
     - [Curso de Vue 3: #16 - Reutilização de componentes](https://www.youtube.com/watch?v=njcYIgHhFMc&ab_channel=MatheusBattisti-HoradeCodar)
     - []()
     - []()
