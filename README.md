@@ -55,7 +55,19 @@ Este curso foi feito através do conteúdo apresentado no site [Youtube](http://
   - Métodos, CSS, listas e eventos
     - [Curso de Vue 3: #11 - Métodos](https://www.youtube.com/watch?v=745aPtV_W60&ab_channel=MatheusBattisti-HoradeCodar)
     - [Curso de Vue 3: #12 - CSS Scoped e CSS global](https://www.youtube.com/watch?v=kMpeOHM4fZg&ab_channel=MatheusBattisti-HoradeCodar)
-  - nome_aula: []()
-  - nome_aula: []()
-  - nome_aula: []()
+    - [Curso de Vue 3: #13 - Renderização de listas (v-for)](https://www.youtube.com/watch?v=GvGYlBYtlAk&ab_channel=MatheusBattisti-HoradeCodar)
+    - [Curso de Vue 3: #14 - Eventos (@submit e @click)](https://www.youtube.com/watch?v=h8Z-pRhe-dw&ab_channel=MatheusBattisti-HoradeCodar)
+    - [Curso de Vue 3: #15 - Múltiplos eventos](https://www.youtube.com/watch?v=AKXG0SblA1w&ab_channel=MatheusBattisti-HoradeCodar)
+  - nome_aula
+    - [Curso de Vue 3: #16 - Reutilização de componentes](https://www.youtube.com/watch?v=njcYIgHhFMc&ab_channel=MatheusBattisti-HoradeCodar)
+    - []()
+    - []()
+  - nome_aula
+    - []()
+    - []()
+    - []()
+
+
+  
+
 
