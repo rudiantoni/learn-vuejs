@@ -1,10 +1,22 @@
 # Métodos, CSS, listas e eventos
 
 - Conteúdo
-  - []()
-  - []()
-  - []()
-  - []()
+  - [Métodos](#métodos)
+  - [CSS Scoped e CSS global](#css-scoped-e-css-global)
+    - [Estilização global](#estilização-global)
+  -   [Estilização scoped](#estilização-scoped)
+  - [Renderização de listas (v-for)](#renderização-de-listas-v-for)
+    - [Usando um array de dados](#usando-um-array-de-dados)
+    - [Atributo key](#atributo-key)
+    - [Usando um array de objetos](#usando-um-array-de-objetos)
+  - [Eventos (@submit e @click)](#eventos-submit-e-click)
+    - [Evento @submit](#evento-submit)
+    - [Diretiva v-model](#diretiva-v-model)
+    - [Evento @click](#evento-click)
+  - [Múltiplos eventos](#múltiplos-eventos)
+    - [Ativando múltiplas funções com o mesmo evento](#ativando-múltiplas-funções-com-o-mesmo-evento)
+    - [Passando valors fixos](#passando-valors-fixos)
+    - [Passando variáveis](#passando-variáveis)
 
 ## Métodos
 
@@ -118,7 +130,7 @@ Quando o estilo é declarado dessa maneira, ele é aplicado ao próprio componen
 
 Isso quer dizer que estilos declarados em componentes pais afetam também componentes filhos, e estilos declarados em componentes filhos afetam também componentes pais.
 
-## Estilização scoped
+### Estilização scoped
 
 A estilização em escopo é aplicada apenas ao componente onde ela é declarada e nada mais.
 
@@ -145,7 +157,7 @@ Nesse caso, a estilização desse componente não será afetada por nenhum outro
 - O dado pode vir de *data*, como um array.
 - E cada item pode ser impresso *junto do HTML*.
 
-## Usando um array de dados
+### Usando um array de dados
 
 Primeiramente, é necessário que exista um array de algum tipo de informação como arrays de booleanos, números, textos e até mesmo objetos.
 
@@ -178,7 +190,7 @@ Agora, no template, basta adicionarmos a diretiva *v-for* no elemento que irá s
 
 Aqui, os elementos *li* vão se repetir, e o texto será atribuído a variável temporária *technology*, criada em runtime mesmo apenas para poder servir de acesso a variável sendo iterada no momento.
 
-## Atributo key
+### Atributo key
 
 Como em outros frameworks, no Vue também é necessário definir um atributo que identifique o elemento repetido como único dentro do DOM.
 
@@ -192,7 +204,7 @@ Nesse caso, como o dado de origem é um array simples, podemos usar o próprio �
 </template>
 ```
 
-## Usando um array de objetos
+### Usando um array de objetos
 
 Para usar um array de objetos, podemos fazer da seguinte maneira:
 

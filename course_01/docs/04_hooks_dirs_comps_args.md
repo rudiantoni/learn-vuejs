@@ -2,17 +2,17 @@
 
 - Conteúdo
   - [Life cycle hooks](#life-cycle-hooks)
-      - [Usando o hook created()](#usando-o-hook-created)
-      - [Usando o hook mounted()](#usando-o-hook-mounted)
-      - [Simulando requisição assíncrona usando setTimeout](#simulando-requisição-assíncrona-usando-settimeout)
+    - [Usando o hook created()](#usando-o-hook-created)
+    - [Usando o hook mounted()](#usando-o-hook-mounted)
+    - [Simulando requisição assíncrona usando setTimeout](#simulando-requisição-assíncrona-usando-settimeout)
   - [Hierarquia de componentes](#hierarquia-de-componentes)
-      - [Componentização](#componentização)
+    - [Componentização](#componentização)
   - [Diretivas](#diretivas)
-      - [Diretiva v-if](#diretiva-v-if)
-      - [Diretiva v-else](#diretiva-v-else)
-      - [Diretiva v-show](#diretiva-v-show)
+    - [Diretiva v-if](#diretiva-v-if)
+    - [Diretiva v-else](#diretiva-v-else)
+    - [Diretiva v-show](#diretiva-v-show)
   - [Argumentos](#argumentos)
-      - [Diretiva v-bind](#diretiva-v-bind)
+    - [Diretiva v-bind](#diretiva-v-bind)
 
 ## Life cycle hooks
 

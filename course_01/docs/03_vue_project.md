@@ -5,8 +5,8 @@
   - [Utilizando o create-vue do Vue](#utilizando-o-create-vue-do-vue)
   - [Estrutura dos arquivos no projeto](#estrutura-dos-arquivos-no-projeto)
   - [Criando componentes](#criando-componentes)
-      - [Criação da estrutura básica](#criação-da-estrutura-básica)
-      - [Importando e utilizando o componente](#importando-e-utilizando-o-componente)
+    - [Criação da estrutura básica](#criação-da-estrutura-básica)
+    - [Importando e utilizando o componente](#importando-e-utilizando-o-componente)
   - [Dados nos componentes](#dados-nos-componentes)
 
 ## Introdução
