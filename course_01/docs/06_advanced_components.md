@@ -192,4 +192,97 @@ export default {
 
 ```
 
-## Emit
+## Ouvindo eventos com $emit
+
+- Utilizando o *$emit* é possível ouvir um evento de um componente filho em um componente pai.
+- Com isso, *podemos ativar comportamentos (como métodos)* no componente pai.
+- *O evento deve ser registrado* no componente.
+- E é preciso definir o que será feito com a ativação do evento na chamada do componente.
+
+Primeiramente, vamos criar dois componentes básicos: *EmitFilho* e *EmitPai*, já usando o componente *EmitFilho* no componente *EmitPai*:
+
+Componente *EmitFilho*:
+
+```html
+<template>
+  <button>Trocar texto do componente pai</button>
+</template>
+
+<script>
+export default {
+  name: 'EmitFilho',
+}
+</script>
+```
+
+Componente *EmitPai*:
+
+```html
+<template>
+  <h2>Emit Pai</h2>
+  <p>Texto de exemplo: {{ texto }}</p>
+  <EmitFilho />
+</template>
+
+<script>
+import EmitFilho from './EmitFilho.vue';
+
+export default {
+  name: "EmitPai",
+  components: { EmitFilho },
+  data() {
+    return {
+      texto: "O texto ainda não foi alterado pelo evento emit do componente filho."
+    };
+  }
+}
+</script>
+```
+
+Pronto, já podemos notar que o componente *EmitFilho* possui um botão, e o componente *EmitPai* possui um parágrafo com uma parte do texto sendo adicionado dinamicamente através da variável disponível no *data*.
+
+A ideia aqui é: ao pressionar o botão no componente filho, o texto no parágrafo do elemento pai é alterado.
+
+Para isso, vamos primeiro ajustar o componente filho.
+
+Aqui, precisamos fazer duas coisas: Primeiro registar o emit (que é um evento personalizado) na exportação através da propriedade *emits*. Essa propriedade é um array de strings, que armazena o nome de todos os *emits* que esse componente possui. Nesse exemplo, o nome do emit é *trocarTexto*.
+
+Após isso, temos de adicionar o evento de clique ao botão, mas, ao invés de colocar um métodos, vamos chamar a função *$emit()* do Vue, passando apenas o nome do emit que nesse caso é *trocarTexto* como parâmetro (também é possível passar parâmetros para o método chamado, basta adicioná-los na função).
+
+```html
+<button @click="$emit('trocarTexto')">Trocar texto do componente pai</button>
+```
+
+```javascript
+export default {
+  name: 'EmitFilho',
+  emits: ['trocarTexto']
+}
+```
+
+Agora, no componente pai, precisamos apenas fazer o componente escutar esse emit (da mesma maneira que um evento) e invocar uma função em sua chamada. Aqui o evento é igual ao nome do emit, porém sempre em kebab-case (separação por hífens).
+
+Por fim, a última coisa necessária é apenas criar o método normalmente na propriedade *methods* na exportação do componente.
+
+```html
+<EmitFilho @trocar-texto="mudaTexto" />
+```
+
+```javascript
+import EmitFilho from './EmitFilho.vue';
+
+export default {
+  name: "EmitPai",
+  components: { EmitFilho },
+  data() {
+    return {
+      texto: "O texto ainda não foi alterado pelo evento emit do componente filho."
+    };
+  },
+  methods: {
+    mudaTexto() {
+      this.texto = 'Texto alterado pelo emit do componente filho.'
+    }
+  }
+}
+```
