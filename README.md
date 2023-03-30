@@ -62,8 +62,8 @@ Este curso foi feito através do conteúdo apresentado no site [Youtube](http://
     - [Curso de Vue 3: #15 - Múltiplos eventos](https://www.youtube.com/watch?v=AKXG0SblA1w&ab_channel=MatheusBattisti-HoradeCodar)
   - Reutilização de componentes, props e emit
     - [Curso de Vue 3: #16 - Reutilização de componentes](https://www.youtube.com/watch?v=njcYIgHhFMc&ab_channel=MatheusBattisti-HoradeCodar)
-    - []()
-    - []()
+    - [Curso de Vue 3: #17 - Utilizando props](https://www.youtube.com/watch?v=-B78d9052zY&ab_channel=MatheusBattisti-HoradeCodar)
+    - [Curso de Vue 3: #18 - Emit](https://www.youtube.com/watch?v=RXldGbtzZdI&ab_channel=MatheusBattisti-HoradeCodar)
   - nome_aula
     - []()
     - []()
