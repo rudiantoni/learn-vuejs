@@ -1,7 +1,12 @@
 # Reutilização de componentes, props e emit
 
 - Conteúdo
-  - [atualizar](atualizar)
+  - [Reutilização de componentes](#reutilização-de-componentes)
+  - [Utilizando props](#utilizando-props)
+    - [Passando props hardcoded](#passando-props-hardcoded)
+    - [Passando props com variáveis](#passando-props-com-variáveis)
+    - [Recebendo prop com array](#recebendo-prop-com-array)
+  - [Ouvindo eventos com $emit](#ouvindo-eventos-com-emit)
 
 ## Reutilização de componentes
 

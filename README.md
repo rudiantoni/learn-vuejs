@@ -65,7 +65,7 @@ Este curso foi feito através do conteúdo apresentado no site [Youtube](http://
     - [Curso de Vue 3: #17 - Utilizando props](https://www.youtube.com/watch?v=-B78d9052zY&ab_channel=MatheusBattisti-HoradeCodar)
     - [Curso de Vue 3: #18 - Emit](https://www.youtube.com/watch?v=RXldGbtzZdI&ab_channel=MatheusBattisti-HoradeCodar)
   - nome_aula
-    - []()
+    - [Curso de Vue 3: #19 - Criando o projeto do curso](https://www.youtube.com/watch?v=CtVhIITICF8&ab_channel=MatheusBattisti-HoradeCodar)
     - []()
     - []()
 
