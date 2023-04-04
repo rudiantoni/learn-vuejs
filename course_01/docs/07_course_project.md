@@ -139,5 +139,3 @@ O JSON Server será iniciado, e disponibilizará os endpoints disponíveis.
 Por padrão ele inicia na porta 3000.
 
 ## Implementando o Vue Router
-
-
