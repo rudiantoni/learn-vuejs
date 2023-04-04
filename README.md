@@ -64,11 +64,11 @@ Este curso foi feito através do conteúdo apresentado no site [Youtube](http://
     - [Curso de Vue 3: #16 - Reutilização de componentes](https://www.youtube.com/watch?v=njcYIgHhFMc&ab_channel=MatheusBattisti-HoradeCodar)
     - [Curso de Vue 3: #17 - Utilizando props](https://www.youtube.com/watch?v=-B78d9052zY&ab_channel=MatheusBattisti-HoradeCodar)
     - [Curso de Vue 3: #18 - Emit](https://www.youtube.com/watch?v=RXldGbtzZdI&ab_channel=MatheusBattisti-HoradeCodar)
-  - Início do projeto, prototipação de API com JSON Server
+  - Início do projeto, prototipação de API com JSON Server, layout
     - [Curso de Vue 3: #19 - Criando o projeto do curso](https://www.youtube.com/watch?v=CtVhIITICF8&ab_channel=MatheusBattisti-HoradeCodar)
     - [Curso de Vue 3: #20 - Criando uma API com JSON server](https://www.youtube.com/watch?v=bleEztMsSDk&ab_channel=MatheusBattisti-HoradeCodar)
     - [Curso de Vue 3: #21 - Implementando o Vue Router](https://www.youtube.com/watch?v=B5NX9oPf5fI&ab_channel=MatheusBattisti-HoradeCodar)
-    - []()
+    - [Curso de Vue 3: #22 - Finalizando cabeçado e rodapé do projeto](https://www.youtube.com/watch?v=UyOv6PTY50Y&ab_channel=MatheusBattisti-HoradeCodar)
     - []()
     - []()
 

@@ -186,23 +186,17 @@ Feito isso, vamos criar um componente wrapper do Router, como um navbar que vai 
 ```html
 <template>
   <div>
-  <nav id="navbar">
-    <RouterLink to="/">Início</RouterLink> | 
-    <RouterLink to="/pedidos">Pedidos</RouterLink>
-  </nav>
-
-  <RouterView />
+    <nav id="navbar">
+      <router-link to="/">Início</router-link> |
+      <router-link to="/pedidos">Pedidos</router-link>
+    </nav>
+    <!-- <router-view /> -->
   </div>
 </template>
 
 <script>
-import { RouterLink, RouterView } from 'vue-router'
 export default {
-  name: 'Navbar',
-  components: {
-    RouterLink,
-    RouterView
-  }
+  name: 'Navbar'
 }
 
 </script>
@@ -212,26 +206,34 @@ export default {
 </style>
 ```
 
-Neste componente, vimos que importamos o *RouterLink* e o *RouterView*.
+Neste componente, vimos que estamos usando (mesmo sem importar) tags diferentes no template:
+
+São as tags os componentes *router-link* e *router-view*, que não passam de atalhos para os componentes *RouterLink* e o *RouterView*, respectivamente.
+
+Como se trata de um componente que automaticamente é inserido no *main.js*, ele já está importado em todo o projeto, então não é necessário importá-lo nos componentes para usá-lo.
 
 O *RouterLink* serve para identificarmos uma rota e direcioná-la para um componente.
 
-O *RouterView* serve para indicarmos o local onde o componente será exibido ao ser clicado.
+O *RouterView* serve para indicarmos o local onde o componente será exibido ao ser clicado. Aqui ele está comentado para mostrar que ele pode ser exibido em outro local.
 
-Como por enquanto não estamos chamando nosso componente *Navbar*, vamos chamá-lo no *App*.
+Como por enquanto não estamos chamando nosso componente *Navbar*, vamos chamá-lo no *App*, aproveitando para chamar o *RouterView* para demonstrar que ele pode ser inserido em qualquer local. Aqui também vai um componente extra *Footer*, que possui apenas um parágrafo então não vamos especificar agora.
 
 ```html
 <template>
   <Navbar />
+  <router-view />
+  <Footer />
 </template>
 
 <script>
 import Navbar from './components/Navbar.vue';
+import Footer from './components/Footer.vue';
 
 export default {
   name: 'App',
   components: {
-    Navbar
+    Navbar,
+    Footer
   }
 }
 </script>
@@ -266,3 +268,10 @@ export default router
 ```
 
 Note que as duas maneiras (uma comentada) são válidas para importar os componentes.
+
+## Finalizando cabeçado e rodapé do projeto
+
+
+
+
+

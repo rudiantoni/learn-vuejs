@@ -1,23 +1,34 @@
 <template>
   <div>
     <nav id="navbar">
-      <RouterLink to="/">Início</RouterLink> |
-      <RouterLink to="/pedidos">Pedidos</RouterLink>
+      <router-link id="logo_url" to="/"><img id="logo" :src="logo" :alt="alt" /></router-link> |
+      <router-link to="/">Início</router-link> |
+      <router-link to="/pedidos">Pedidos</router-link>
     </nav>
-
-    <RouterView />
+    <!-- <router-view /> -->
   </div>
 </template>
 
 <script>
-import { RouterLink, RouterView } from 'vue-router'
 export default {
   name: 'Navbar',
-  components: {
-    RouterLink,
-    RouterView
-  }
+  props: ["logo", "alt"]
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+#navbar {
+  background-color: #222;
+  border-bottom: 1px solid #111;
+  padding:15px 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+logo_url {
+
+////// TODO REPOSITÓRIO PRA MOSRTA
+   }
+
+</style>
