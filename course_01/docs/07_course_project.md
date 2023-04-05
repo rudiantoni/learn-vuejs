@@ -271,7 +271,6 @@ Note que as duas maneiras (uma comentada) são válidas para importar os compone
 
 ## Finalizando cabeçado e rodapé do projeto
 
-
-
+## Criando banner da aplicação
 
 
