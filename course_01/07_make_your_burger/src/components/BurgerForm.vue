@@ -1,6 +1,6 @@
 <template>
   <p>Componente de mensagem</p>
-  <form id="burger-form">
+  <form id="burger-form" @submit="createBurger">
 
     <div class="input-container">
       <label for="nome">Nome do Cliente:</label>
@@ -43,9 +43,9 @@ export default {
   name: 'BurgerForm',
   data() {
     return {
-      paes: [],
-      carnes: [],
-      opcionais_data: [],
+      paes: null,
+      carnes: null,
+      opcionais_data: null,
       nome: null,
       pao: 'default',
       carne: 'default',
@@ -61,10 +61,49 @@ export default {
     async getIngredientes() {
       const req = await fetch('http://localhost:3000/ingredientes');
       const data = await req.json();
-      
+
       this.paes = data.paes;
       this.carnes = data.carnes;
       this.opcionais_data = data.opcionais;
+
+      console.log('this.paes', this.paes)
+      console.log('this.carnes', this.carnes)
+      console.log('this.opcionais_data', this.opcionais_data)
+    },
+    async createBurger(event) {
+      event.preventDefault()
+
+      // É necessário converter o array do Proxy Array para um array normal do JS
+      //opcionais: [...this.opcionais],
+      //opcionais: Array.from(this.opcionais),
+
+      const data = {
+        nome: this.nome,
+        pao: this.pao,
+        carne: this.carne,
+        opcionais: [...this.opcionais],
+        status: this.status
+      }
+
+      const dataJson = JSON.stringify(data)
+
+      const req = await fetch('http://localhost:3000/burgers', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: dataJson
+      });
+
+      const res = await req.json();
+
+      this.nome = null
+      this.pao = 'default',
+      this.carne = 'default',
+      this.opcionais = []
+
+      /*
+      TODO: colocar mensagem no sistema e depois limpar a mensagem
+      */
+
     }
   }
 }
@@ -91,7 +130,8 @@ label {
   border-left: 4px solid #FCBA03
 }
 
-input, select {
+input,
+select {
   padding: 5px 10px;
   width: 300px;
 }
@@ -112,7 +152,8 @@ input, select {
   margin-bottom: 20px;
 }
 
-.checkbox-container span, .checkbox-container input {
+.checkbox-container span,
+.checkbox-container input {
   width: auto;
 }
 

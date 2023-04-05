@@ -82,5 +82,39 @@
     }
   ],
   "burgers": [
+    {
+      "nome": "Rudi",
+      "pao": "Parmesão e Orégano",
+      "carne": "Veggie burger",
+      "opcionais": [
+        "Tomate",
+        "Bacon",
+        "Cebola roxa"
+      ],
+      "status": "Solicitado",
+      "id": 1
+    },
+    {
+      "nome": "Aula",
+      "pao": "Italiano Branco",
+      "carne": "Maminha",
+      "opcionais": [
+        "Salame",
+        "Cheddar"
+      ],
+      "status": "Solicitado",
+      "id": 2
+    },
+    {
+      "nome": "Rudi Teste",
+      "pao": "3 Queijos",
+      "carne": "Maminha",
+      "opcionais": [
+        "Cheddar",
+        "Tomate"
+      ],
+      "status": "Solicitado",
+      "id": 3
+    }
   ]
 }

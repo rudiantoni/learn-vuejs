@@ -5,13 +5,13 @@
 
 ## Resgatando dados do banco e inserindo no formulário
 
-### Criando as variáveis, método e chamado ao montar o componente no lifecycle hook mounted()
+### Criando as variáveis, método assíncrono (async) e chamado ao montar o componente no lifecycle hook mounted()
 
 No nosso componente *BurgerForm*, nós vamos popular algumas das entradas dos formulários com os dados do banco da API JSON.
 
 Para isso, será necessário:
 - Criar as variáveis para armazená-las no *data()*, pois como esses dados serão acessados pelo template, ela tem que estar no *data()*, mas isso não é requisito para outros casos.
-- Criar o método de invocação em algum lifecycle hook, de preferência no hook *mounted()*.
+- Criar o método de invocação em algum lifecycle hook, de preferência no hook *mounted()*. Esse método deve ser assíncrono (async).
 - Criar o método e chamá-lo no hook previamente definido.
 
 ```javascript
@@ -77,4 +77,56 @@ Nesse caso, a variável *opcionais* ficará com o resultado das escolhas selecio
   <span>{{ item.tipo }}</span>
 </div>
 <!-- ... -->
+```
+
+## Inserindo dados no banco
+
+Para inserir os dados no banco, vamos primeiro criar um evento no *form*, para que, quando o formulário seja enviado, seja executada a função *createBurger()*:
+
+```html
+<form id="burger-form" @submit="createBurger">
+```
+
+Vamos agora criar a função na propriedade *methods* da exportação do componente.
+
+Aqui primeiro vamos bloquear o comportamento normal com `event.preventDefault()`, assim a página não será recarregada nem serão criadas variáveis na URL.
+
+Em segundo vamos criar o objeto que manterá os dados a serem enviados, isso é feito na variável *data*. Observe que, por padrão requisições que possuem arrays no envio de dados precisam ser convertidos para arrays normais. São exibidos dois exemplos nos comentários do código abaixo.
+
+Por último, como estamos lidando com o JSON Server, precisaremos enviar os dados como uma string JSON válida, para isso, vamos converter o objeto *data* através da função `JSON.stringify()`. Em requisições normais isso não é feito, os dados são enviados como JSON mesmo.
+
+Agora é só realizar a requisição, novamente, de maneira assíncrona. Note que, dessa vez, são especificados o método, o cabeçalho e o corpo da requisição, pois agora estamos fazendo um POST, e ele não é mais o padrão do fetch.
+
+Podemos obter a resposta atraves da variável *res* demonstrada abaixo.
+
+
+```javascript
+async createBurger(event) {
+  event.preventDefault()
+
+  // É necessário converter o array do Proxy Array para um array normal do JS
+  //opcionais: [...this.opcionais],
+  //opcionais: Array.from(this.opcionais),
+
+  const data = {
+    nome: this.nome,
+    pao: this.pao,
+    carne: this.carne,
+    opcionais: [...this.opcionais],
+    status: this.status
+  }
+
+  const dataJson = JSON.stringify(data)
+
+  const req = await fetch('http://localhost:3000/burgers', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: dataJson
+  });
+
+  const res = await req.json();
+
+  console.log('res', res)
+
+}
 ```

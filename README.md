@@ -77,6 +77,13 @@ Este curso foi feito através do conteúdo apresentado no site [Youtube](http://
       - [Curso de Vue 3: #24 - Criando formulário de cadastro](https://www.youtube.com/watch?v=mCfqTo9LdL8&ab_channel=MatheusBattisti-HoradeCodar)
     - nome_aula
       - [Curso de Vue 3: #25 - Resgatando dados do banco e inserindo no formulário](https://www.youtube.com/watch?v=DxYc2CUan_4&ab_channel=MatheusBattisti-HoradeCodar)
+      - [Curso de Vue 3: #26 - Inserindo dados no banco](https://www.youtube.com/watch?v=Z5eTqFtCZHk&ab_channel=MatheusBattisti-HoradeCodar)
+      - []()
+      - []()
+      - []()
+      - []()
+      - []()
+      - []()
       - []()
       - []()
       - []()
