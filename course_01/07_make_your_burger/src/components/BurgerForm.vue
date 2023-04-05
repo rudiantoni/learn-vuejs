@@ -10,32 +10,24 @@
     <div class="input-container">
       <label for="pao">Escolha o pão:</label>
       <select name="pao" id="pao" v-model="pao">
-        <option value="">Selecione o seu pão</option>
-        <option value="integral">Integral</option>
+        <option value="default">Selecione o seu pão</option>
+        <option v-for="item in paes" :key="item.id" :value="item.tipo">{{ item.tipo }}</option>
       </select>
     </div>
 
     <div class="input-container">
       <label for="carne">Escolha a carne do seu burger:</label>
       <select name="carne" id="carne" v-model="carne">
-        <option value="">Selecione o tipo de carne</option>
-        <option value="maminha">Maminha</option>
+        <option value="default">Selecione o tipo de carne</option>
+        <option v-for="item in carnes" :key="item.id" :value="item.tipo">{{ item.tipo }}</option>
       </select>
     </div>
 
     <div id="opcionais-container" class="input-container">
       <label id="opcionais-title" for="opcionais">Selecione os opcionais:</label>
-      <div class="checkbox-container">
-        <input type="checkbox" name="opcionais" v-model="opcionais" value="salame" />
-        <span>Salame</span>
-      </div>
-      <div class="checkbox-container">
-        <input type="checkbox" name="opcionais" v-model="opcionais" value="salame" />
-        <span>Salame</span>
-      </div>
-      <div class="checkbox-container">
-        <input type="checkbox" name="opcionais" v-model="opcionais" value="salame" />
-        <span>Salame</span>
+      <div v-for="item in opcionais_data" :key="item.id" class="checkbox-container">
+        <input type="checkbox" name="opcionais" v-model="opcionais" :value="item.tipo" />
+        <span>{{ item.tipo }}</span>
       </div>
     </div>
 
@@ -51,7 +43,28 @@ export default {
   name: 'BurgerForm',
   data() {
     return {
-
+      paes: [],
+      carnes: [],
+      opcionais_data: [],
+      nome: null,
+      pao: 'default',
+      carne: 'default',
+      opcionais: [],
+      status: 'Solicitado',
+      msg: null
+    }
+  },
+  mounted() {
+    this.getIngredientes()
+  },
+  methods: {
+    async getIngredientes() {
+      const req = await fetch('http://localhost:3000/ingredientes');
+      const data = await req.json();
+      
+      this.paes = data.paes;
+      this.carnes = data.carnes;
+      this.opcionais_data = data.opcionais;
     }
   }
 }

@@ -75,8 +75,8 @@ Este curso foi feito através do conteúdo apresentado no site [Youtube](http://
       - [Curso de Vue 3: #22 - Finalizando cabeçado e rodapé do projeto](https://www.youtube.com/watch?v=UyOv6PTY50Y&ab_channel=MatheusBattisti-HoradeCodar)
       - [Curso de Vue 3: #23 - Criando banner da aplicação](https://www.youtube.com/watch?v=ihCBurkrFyc&ab_channel=MatheusBattisti-HoradeCodar)
       - [Curso de Vue 3: #24 - Criando formulário de cadastro](https://www.youtube.com/watch?v=mCfqTo9LdL8&ab_channel=MatheusBattisti-HoradeCodar)
-      - [Curso de Vue 3: #25 - Resgatando dados do banco e inserindo no formulário](https://www.youtube.com/watch?v=DxYc2CUan_4&ab_channel=MatheusBattisti-HoradeCodar)
     - nome_aula
+      - [Curso de Vue 3: #25 - Resgatando dados do banco e inserindo no formulário](https://www.youtube.com/watch?v=DxYc2CUan_4&ab_channel=MatheusBattisti-HoradeCodar)
       - []()
       - []()
       - []()
