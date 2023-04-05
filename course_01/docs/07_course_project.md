@@ -271,6 +271,157 @@ Note que as duas maneiras (uma comentada) são válidas para importar os compone
 
 ## Finalizando cabeçado e rodapé do projeto
 
+**Home.vue**
+
+```html
+<p>banner</p>
+<div class="main-container">
+  <h1>Monte o seu burger:</h1>
+  <p>formulário</p>
+</div>
+```
+
+```javascript
+export default {
+  name: 'Home'
+}
+```
+
+**App.vue**
+
+```html
+<Navbar :logo="logo_src" :alt="app_name" />
+<router-view />
+<Footer />
+```
+
+```javascript
+import Navbar from './components/Navbar.vue';
+import Footer from './components/Footer.vue';
+
+export default {
+  name: 'App',
+  components: {
+    Navbar,
+    Footer
+  },
+  data() {
+    return {
+      logo_src: '/img/logo.png',
+      app_name: 'Make Your Burger'
+    }
+  }
+}
+```
+
+```css
+* {
+  font-family: Helvetica;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.main-container {
+  margin: 50px;
+  min-height: 250px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+```
+
+**Navbar.vue**
+
+```html
+<div>
+  <nav id="navbar">
+    <router-link id="logo-url" to="/"><img id="logo" :src="logo" :alt="alt" /></router-link>
+    <router-link to="/">Início</router-link>
+    <router-link to="/pedidos">Pedidos</router-link>
+  </nav>
+</div>
+```
+
+```javascript
+export default {
+  name: 'Navbar',
+  props: ["logo", "alt"]
+}
+```
+
+```css
+#navbar {
+  background-color: #222;
+  border-bottom: 4px solid #111;
+  padding: 15px 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#navbar #logo-url {
+  margin: auto;
+  margin-left: 0;
+}
+
+#logo {
+  width: 40px;
+  height: 40px;
+}
+
+#navbar a {
+  color: #FCBA03;
+  text-decoration: none;
+  margin: 12px;
+  transition: 0.5s;
+}
+
+#navbar a:hover {
+  color: #FFF;
+}
+```
+
+**Footer.vue**
+
+```html
+<footer id="footer">
+    <p>Make Your Burger &copy; 2023</p>
+</footer>
+```
+
+```javascript
+export default {
+  name: 'Footer'
+}
+```
+
+```css
+#footer {
+  height: 200px;
+  background-color: #222;
+  border-top: 4px solid #111;
+  color: #FCBA03;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  margin-top: auto;
+  width: 100%;
+}
+```
+
 ## Criando banner da aplicação
 
 
+## Criando formulário de cadastro
