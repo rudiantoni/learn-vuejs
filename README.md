@@ -25,6 +25,9 @@ Todos os projetos desenvolvidos possuem o objetivo único de aprender e praticar
     - Projeto: [05_methods_and_events](./course_01/05_methods_and_events/)
   - [Reutilização de componentes, props e emit](./course_01/docs/06_advanced_components.md)
     - Projeto: [06_advanced_components](./course_01/06_advanced_components/)
+  - **Projeto do curso**
+    - [Início do projeto, prototipação de API com JSON Server, Router e layout base](./course_01/docs/07_course_project.md)
+      - Projeto: [06_advanced_components](./course_01/07_make_your_burger/)
 
 ### Observações
 
@@ -64,20 +67,21 @@ Este curso foi feito através do conteúdo apresentado no site [Youtube](http://
     - [Curso de Vue 3: #16 - Reutilização de componentes](https://www.youtube.com/watch?v=njcYIgHhFMc&ab_channel=MatheusBattisti-HoradeCodar)
     - [Curso de Vue 3: #17 - Utilizando props](https://www.youtube.com/watch?v=-B78d9052zY&ab_channel=MatheusBattisti-HoradeCodar)
     - [Curso de Vue 3: #18 - Emit](https://www.youtube.com/watch?v=RXldGbtzZdI&ab_channel=MatheusBattisti-HoradeCodar)
-  - Início do projeto, prototipação de API com JSON Server, layout
-    - [Curso de Vue 3: #19 - Criando o projeto do curso](https://www.youtube.com/watch?v=CtVhIITICF8&ab_channel=MatheusBattisti-HoradeCodar)
-    - [Curso de Vue 3: #20 - Criando uma API com JSON server](https://www.youtube.com/watch?v=bleEztMsSDk&ab_channel=MatheusBattisti-HoradeCodar)
-    - [Curso de Vue 3: #21 - Implementando o Vue Router](https://www.youtube.com/watch?v=B5NX9oPf5fI&ab_channel=MatheusBattisti-HoradeCodar)
-    - [Curso de Vue 3: #22 - Finalizando cabeçado e rodapé do projeto](https://www.youtube.com/watch?v=UyOv6PTY50Y&ab_channel=MatheusBattisti-HoradeCodar)
-    - [Curso de Vue 3: #23 - Criando banner da aplicação](https://www.youtube.com/watch?v=ihCBurkrFyc&ab_channel=MatheusBattisti-HoradeCodar)
-    - [Curso de Vue 3: #24 - Criando formulário de cadastro](https://www.youtube.com/watch?v=mCfqTo9LdL8&ab_channel=MatheusBattisti-HoradeCodar)
-    
-    - [Curso de Vue 3: #25 - Resgatando dados do banco e inserindo no formulário](https://www.youtube.com/watch?v=DxYc2CUan_4&ab_channel=MatheusBattisti-HoradeCodar)
-    - []()
-    - []()
-    - []()
-    - []()
-    - []()
+  - **Projeto do curso**
+    - Início do projeto, prototipação de API com JSON Server, Router e layout (Navbar, Footer, Home, Banner e Form)
+      - [Curso de Vue 3: #19 - Criando o projeto do curso](https://www.youtube.com/watch?v=CtVhIITICF8&ab_channel=MatheusBattisti-HoradeCodar)
+      - [Curso de Vue 3: #20 - Criando uma API com JSON server](https://www.youtube.com/watch?v=bleEztMsSDk&ab_channel=MatheusBattisti-HoradeCodar)
+      - [Curso de Vue 3: #21 - Implementando o Vue Router](https://www.youtube.com/watch?v=B5NX9oPf5fI&ab_channel=MatheusBattisti-HoradeCodar)
+      - [Curso de Vue 3: #22 - Finalizando cabeçado e rodapé do projeto](https://www.youtube.com/watch?v=UyOv6PTY50Y&ab_channel=MatheusBattisti-HoradeCodar)
+      - [Curso de Vue 3: #23 - Criando banner da aplicação](https://www.youtube.com/watch?v=ihCBurkrFyc&ab_channel=MatheusBattisti-HoradeCodar)
+      - [Curso de Vue 3: #24 - Criando formulário de cadastro](https://www.youtube.com/watch?v=mCfqTo9LdL8&ab_channel=MatheusBattisti-HoradeCodar)
+      - [Curso de Vue 3: #25 - Resgatando dados do banco e inserindo no formulário](https://www.youtube.com/watch?v=DxYc2CUan_4&ab_channel=MatheusBattisti-HoradeCodar)
+    - nome_aula
+      - []()
+      - []()
+      - []()
+      - []()
+      - []()
 
 
   

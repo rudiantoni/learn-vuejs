@@ -1,7 +1,18 @@
-# Título
+# Início do projeto, prototipação de API com JSON Server, Router e layout base
 
 - Conteúdo
-  - [atualizar](atualizar)
+  - [Criando o projeto do curso](#criando-o-projeto-do-curso)
+  - [Criando uma API com JSON server](#criando-uma-api-com-json-server)
+    - [Instalando a dependência](#instalando-a-dependência)
+    - [Criando o banco de dados](#criando-o-banco-de-dados)
+    - [Executando](#executando)
+  - [Implementando o Vue Router](#implementando-o-vue-router)
+    - [Criando os arquivos de componentes alvo](#criando-os-arquivos-de-componentes-alvo)
+    - [Criando o componente wrapper de rotas](#criando-o-componente-wrapper-de-rotas)
+    - [Relacionando as rotas com os componentes](#relacionando-as-rotas-com-os-componentes)
+  - [Finalizando cabeçalho e rodapé do projeto](#finalizando-cabeçalho-e-rodapé-do-projeto)
+  - [Criando banner da aplicação](#criando-banner-da-aplicação)
+  - [Criando formulário de cadastro](#criando-formulário-de-cadastro)
 
 ## Criando o projeto do curso
 
@@ -269,7 +280,7 @@ export default router
 
 Note que as duas maneiras (uma comentada) são válidas para importar os componentes.
 
-## Finalizando cabeçado e rodapé do projeto
+## Finalizando cabeçalho e rodapé do projeto
 
 **Home.vue**
 
