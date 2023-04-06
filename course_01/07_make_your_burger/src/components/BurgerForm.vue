@@ -1,5 +1,5 @@
 <template>
-  <p>Componente de mensagem</p>
+  <Message :msg="msg" v-show="msg" />
   <form id="burger-form" @submit="createBurger">
 
     <div class="input-container">
@@ -39,6 +39,8 @@
 </template>
 
 <script>
+import Message from './Message.vue';
+
 export default {
   name: 'BurgerForm',
   data() {
@@ -52,59 +54,50 @@ export default {
       opcionais: [],
       status: 'Solicitado',
       msg: null
-    }
+    };
   },
   mounted() {
-    this.getIngredientes()
+    this.getIngredientes();
   },
   methods: {
     async getIngredientes() {
       const req = await fetch('http://localhost:3000/ingredientes');
       const data = await req.json();
-
       this.paes = data.paes;
       this.carnes = data.carnes;
       this.opcionais_data = data.opcionais;
-
-      console.log('this.paes', this.paes)
-      console.log('this.carnes', this.carnes)
-      console.log('this.opcionais_data', this.opcionais_data)
     },
     async createBurger(event) {
-      event.preventDefault()
-
+      event.preventDefault();
       // É necessário converter o array do Proxy Array para um array normal do JS
       //opcionais: [...this.opcionais],
       //opcionais: Array.from(this.opcionais),
-
       const data = {
         nome: this.nome,
         pao: this.pao,
         carne: this.carne,
         opcionais: [...this.opcionais],
         status: this.status
-      }
-
-      const dataJson = JSON.stringify(data)
-
+      };
+      const dataJson = JSON.stringify(data);
       const req = await fetch('http://localhost:3000/burgers', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: dataJson
       });
-
       const res = await req.json();
+      this.nome = null;
+      this.pao = 'default';
+      this.carne = 'default';
+      this.opcionais = [];
 
-      this.nome = null
-      this.pao = 'default',
-      this.carne = 'default',
-      this.opcionais = []
+      this.msg = `Pedido número ${res.id} realizado com sucesso`
 
-      /*
-      TODO: colocar mensagem no sistema e depois limpar a mensagem
-      */
-
+      setTimeout(() => this.msg = '', 3000)
     }
+  },
+  components: {
+    Message
   }
 }
 </script>

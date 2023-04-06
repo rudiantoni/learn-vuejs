@@ -27,7 +27,7 @@ Todos os projetos desenvolvidos possuem o objetivo único de aprender e praticar
     - Projeto: [06_advanced_components](./course_01/06_advanced_components/)
   - **Projeto do curso**
     - [Início do projeto, prototipação de API com JSON Server, Router e layout base](./course_01/docs/07_course_project.md)
-      - Projeto: [06_advanced_components](./course_01/07_make_your_burger/)
+      - Projeto: [07_make_your_burger](./course_01/07_make_your_burger/)
 
 ### Observações
 
@@ -78,8 +78,9 @@ Este curso foi feito através do conteúdo apresentado no site [Youtube](http://
     - nome_aula
       - [Curso de Vue 3: #25 - Resgatando dados do banco e inserindo no formulário](https://www.youtube.com/watch?v=DxYc2CUan_4&ab_channel=MatheusBattisti-HoradeCodar)
       - [Curso de Vue 3: #26 - Inserindo dados no banco](https://www.youtube.com/watch?v=Z5eTqFtCZHk&ab_channel=MatheusBattisti-HoradeCodar)
-      - []()
-      - []()
+      - [Curso de Vue 3: #27 - Criando componente de mensagens do sistema](https://www.youtube.com/watch?v=5WXWoe2t_00&ab_channel=MatheusBattisti-HoradeCodar)
+      - [Curso de Vue 3: #28 - Criando a tela de pedidos (Dashboard)](https://www.youtube.com/watch?v=a5ALeXKWGJM&ab_channel=MatheusBattisti-HoradeCodar)
+      - [Curso de Vue 3: #29 - Resgatando pedidos do banco](https://www.youtube.com/watch?v=noQdE8weGv4&ab_channel=MatheusBattisti-HoradeCodar)
       - []()
       - []()
       - []()

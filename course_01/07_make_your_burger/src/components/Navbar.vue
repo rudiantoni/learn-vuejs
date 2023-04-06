@@ -12,7 +12,7 @@
 <script>
 export default {
   name: 'Navbar',
-  props: ["logo", "alt"]
+  props: ['logo', 'alt']
 }
 </script>
 
@@ -46,5 +46,4 @@ export default {
 #navbar a:hover {
   color: #FFF;
 }
-
 </style>
