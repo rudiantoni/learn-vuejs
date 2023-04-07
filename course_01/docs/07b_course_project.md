@@ -185,3 +185,64 @@ Para popular os dados no template HTML que criamos anteriormente:
   <!-- ... -->
 </div>
 ```
+
+## Recebendo os status dos pedidos
+
+Primeiramente, trazer os dados do banco de dados:
+
+```javascript
+export default {
+  name: 'Dashboard',
+  //...
+  data() {
+    return {
+      // ...
+      burgerStatus: null
+    }
+  },
+  methods: {
+    //...
+    async getStatus() {
+      const req = await fetch('http://localhost:3000/status')
+      const data = await req.json()
+      this.status = data;
+    }
+    //...
+  },
+  mounted() {
+    //...
+    this.getStatus();
+    //...
+  }
+}
+```
+
+Após isso, é só realizar o loop e marcar no template as variáveis correspondentes. Observe que para deixar pré-selecionado no *select* do pedido, foi usado o atributo *selected* do elemento HTML *option*. Caso usássemos o *v-model* no *select* com algum valor pré-determinado combinando ou não com algum *value* de algum option, esse ignoraria de qualquer maneira o atributo *selected*.
+
+Como esse select ainda está dentro do loop do *burgerItem*, da lista *burgers*, ainda conseguimos acessá-lo e será o uso dessa variável em uma dada condição que determinará a opção pré-selecionada.
+
+```html
+<!-- ... -->
+<select name="status" class="status">
+  <option value="default">Selecione</option>
+  <option
+    v-for="item in status" :key="item.id" value="item.tipo"
+    :selected="burgerItem.status === item.tipo">
+    {{ item.tipo }}
+  </option>
+</select>
+<!-- ... -->
+```
+
+## Removendo pedidos do sistema
+
+Para remover um pedido do sistema, normalmente enviamos uma requisição HTTP DELETE para a API que estamos utilizando, informando o dado que a identifica como um registro único que, no nosso caso é o campo *id*. Sendo assim, basta adicionarmos um evento de clique no botão de cancelar que enviará o id atual (lembre-se que o botão está dentro do loop de burgers então ele tem acesso a essa propriedade) para um método do componente, este fará uma requisição DELETE para a api:
+
+```html
+<!-- ... -->
+<button class="delete-btn" @click="deleteBurger(burgerItem.id)">Cancelar</button>
+<!-- ... -->
+```
+
+## Atualização de pedidos
+

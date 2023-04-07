@@ -28,13 +28,17 @@
         </div>
 
         <div>
-          <select name="status" class=".status">
+          <select name="status" class="status">
             <option value="default">Selecione</option>
+            <option
+              v-for="item in status" :key="item.id" value="item.tipo"
+              :selected="burgerItem.status === item.tipo">
+              {{ item.tipo }}
+            </option>
           </select>
-          <button class="delete-btn">Cancelar</button>
+          <button class="delete-btn" @click="deleteBurger(burgerItem.id)">Cancelar</button>
         </div>
 
-        <div></div>
       </div>
     </div>
 
@@ -49,7 +53,8 @@ export default {
     return {
       burgers: [],
       burgerId: null,
-      status: []
+      status: [],
+      burgerStatus: null
     }
   },
   methods: {
@@ -57,17 +62,30 @@ export default {
       const req = await fetch('http://localhost:3000/burgers')
       const data = await req.json()
       this.burgers = data;
+    },
+    async getStatus() {
+      const req = await fetch('http://localhost:3000/status')
+      const data = await req.json()
+      this.status = data;
+    },
+    async deleteBurger(burgerId) {
+      const url = `http://localhost:3000/burgers/${burgerId}`
+      const config = {
+        method: 'DELETE'
+      }
+      const req = await fetch(url, config)
+      const res = await req.json()
 
-      /**
-       * TODO: resgatar os status
-       */
+      //TODO: msg de cancelamento
+
+      this.getPedidos();
+
     }
   },
   mounted() {
     this.getPedidos();
-  
+    this.getStatus();
   }
-
 }
 </script>
 

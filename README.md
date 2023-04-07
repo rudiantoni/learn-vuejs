@@ -83,9 +83,9 @@ Este curso foi feito através do conteúdo apresentado no site [Youtube](http://
     - nome_aula
       - [Curso de Vue 3: #28 - Criando a tela de pedidos (Dashboard)](https://www.youtube.com/watch?v=a5ALeXKWGJM&ab_channel=MatheusBattisti-HoradeCodar)
       - [Curso de Vue 3: #29 - Resgatando pedidos do banco](https://www.youtube.com/watch?v=noQdE8weGv4&ab_channel=MatheusBattisti-HoradeCodar)
-      - []()
-      - []()
-      - []()
+      - [Curso de Vue 3: #30 - Recebendo os status dos pedidos](https://www.youtube.com/watch?v=a7Z-hoIfAnE&ab_channel=MatheusBattisti-HoradeCodar)
+      - [Curso de Vue 3: #31 - Removendo pedidos do sistema](https://www.youtube.com/watch?v=u8Nb1SBX-GQ&ab_channel=MatheusBattisti-HoradeCodar)
+      - [Curso de Vue 3: #32 - Atualização de pedidos](https://www.youtube.com/watch?v=_i-vRSlKgkI&ab_channel=MatheusBattisti-HoradeCodar)
       - []()
       - []()
       - []()

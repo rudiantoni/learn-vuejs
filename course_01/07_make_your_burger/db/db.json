@@ -83,18 +83,6 @@
   ],
   "burgers": [
     {
-      "nome": "Rudi",
-      "pao": "Parmesão e Orégano",
-      "carne": "Veggie burger",
-      "opcionais": [
-        "Tomate",
-        "Bacon",
-        "Cebola roxa"
-      ],
-      "status": "Solicitado",
-      "id": 1
-    },
-    {
       "nome": "Aula",
       "pao": "Italiano Branco",
       "carne": "Maminha",
@@ -104,28 +92,6 @@
       ],
       "status": "Solicitado",
       "id": 2
-    },
-    {
-      "nome": "Rudi Teste",
-      "pao": "3 Queijos",
-      "carne": "Maminha",
-      "opcionais": [
-        "Cheddar",
-        "Tomate"
-      ],
-      "status": "Solicitado",
-      "id": 3
-    },
-    {
-      "nome": "Rudi Teste",
-      "pao": "Parmesão e Orégano",
-      "carne": "Alcatra",
-      "opcionais": [
-        "Bacon",
-        "Pepino"
-      ],
-      "status": "Solicitado",
-      "id": 4
     },
     {
       "nome": "Maria",
@@ -139,11 +105,12 @@
       "id": 5
     },
     {
-      "nome": "Joaquina",
-      "pao": "Integral",
-      "carne": "Veggie burger",
+      "nome": "Zenildo",
+      "pao": "Pão Mexicano",
+      "carne": "Alcatra",
       "opcionais": [
-        "Tomate"
+        "Bacon",
+        "Cebola roxa"
       ],
       "status": "Solicitado",
       "id": 6
