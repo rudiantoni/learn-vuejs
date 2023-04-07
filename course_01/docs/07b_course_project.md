@@ -301,3 +301,240 @@ export default {
   //...
 }
 ```
+
+## Mensagens nas atualizações e remoções de pedido, chamado com $refs
+
+Aqui vamos ir um pouco além do demonstrado na aula, e vamos deixar a lógica de exibição de mensagem apenas no componente *Message*.
+
+Primeiro vamos adaptá-lo para não receber mais props, e sim, apenas exibir a mensagem após a chamada de um método dentro do próprio componente, para podermos chamá-lo a partir de outro componente:
+
+```html
+<template>
+  <div class="message-container" v-show="message">
+    <p>{{ message }}</p>
+  </div>
+</template>
+```
+
+```html
+<script>
+export default {
+  name: 'Message',
+  data() {
+    return {
+      message: null,
+      timeout: null
+    }
+  },
+  methods: {
+    send(msg) {
+      const oldTimeout = this.timeout
+      if (oldTimeout) {
+        clearTimeout(oldTimeout)
+      }
+
+      this.message = msg
+      this.timeout = setTimeout(() => this.message = null, 3000)
+      
+    }
+  },
+  expose: ['send']
+}
+</script>
+```
+
+Quando o método *send()* for chamado:
+- Ele vai obter a instância antiga do timeout anterior (se existente) e guardar na variável *oldTimeout*
+- Caso tenha existido uma instância anterior do temporizador, ele vai ser removido para que a mensagem não seja zerada, e apenas o timeout atual exista.
+- Vai atualizar a variável de mensagem *this.message* que está sendo interpolada no template, fazendo assim com que o DOM seja alterado, com o valor recebido pelo argumento *msg*.
+- Vai ser criado um novo temporizador e armazenado na variável *this.timeout* para poder ser acessado posteriormente.
+
+Assim, toda vez que a função for chamada, ela substituirá o texto atual do componente e resetará o temporizador.
+
+Como esse método exige alteração do DOM, então ele tem que ser chamado utilizando a propriedade *expose*.
+
+Agora, para chamarmos esse método em algum componente, devemos fazer o seguinte:
+
+```html
+<!-- ... -->
+<Message ref="msg" />
+<!-- ... -->
+```
+
+```javascript
+import Message from './Message.vue';
+
+export default {
+  methods: {
+    async createBurger(event) {
+      const res {id: 1} // exemplo
+      this.sendMessage(`Pedido número ${res.id} realizado com sucesso`)
+    },
+    sendMessage(message) {
+      this.$refs.msg.send(message)
+    }
+  },
+  components: {
+    Message
+  }
+}
+```
+
+Também é possível chamar a função com *Message.methods.send(msg)*, porém não surtirá efeito na DOM, pois ela está sendo chamada sem levar em consideração o contexto em que se encontra.
+
+## Conclusão do curso: Criando API util
+
+Aqui vamos ainda mais além, agora vamos criar um arquivo *apiService.js* para podermos utilizar as funções de API de maneira mais simples.
+
+Primeiro, vamos criar o seguinte arquivo em */src/utils/apiService.js*:
+
+```javascript
+const BASE_URL = 'http://localhost:3000'
+
+const http = async (request) => {
+  try {
+    const response = await fetch(request)
+    if (!response.ok) {
+      throw new Error('HTTP response was not OK')
+    }
+    return { response: response, data: await response.json() }
+  } catch (e) {
+    console.error('HTTP error: ', e)
+    throw e
+  }
+
+}
+
+const apiService = {
+
+  get: async (route) => {
+    const reqUrl = `${BASE_URL}${route}`
+
+    const reqConfig = {
+      method: 'GET'
+    }
+
+    const req = new Request(reqUrl, reqConfig)
+    return await http(req)
+  },
+
+  post: async (route, body) => {
+    const reqUrl = `${BASE_URL}${route}`
+    const reqBody = JSON.stringify(body)
+    const reqHeaders = new Headers()
+    reqHeaders.append('Content-Type', 'application/json')
+
+    const reqConfig = {
+      method: 'POST',
+      headers: reqHeaders,
+      body: reqBody
+    }
+
+    const req = new Request(reqUrl, reqConfig)
+    return await http(req)
+  },
+
+  delete: async (route) => {
+    const reqUrl = `${BASE_URL}${route}`
+
+    const reqConfig = {
+      method: 'DELETE'
+    }
+
+    const req = new Request(reqUrl, reqConfig)
+    return await http(req)
+  },
+
+  patch: async (route, body) => {
+    const reqUrl = `${BASE_URL}${route}`
+    const reqBody = JSON.stringify(body)
+    const reqHeaders = new Headers()
+    reqHeaders.append('Content-Type', 'application/json')
+
+    const reqConfig = {
+      method: 'PATCH',
+      headers: reqHeaders,
+      body: reqBody
+    }
+
+    const req = new Request(reqUrl, reqConfig)
+    return await http(req)
+  }
+
+}
+
+export {
+  apiService
+}
+```
+
+Este arquivo possui todos os métodos HTTP que são utilizados no projeto: GET, POST, PATCH e DELETE.
+
+Temos exemplos de GET e POST no componente *BurgerForm.vue*, e temos exemplos de GET, PATCH e DELETE no componente *Dashboard.vue*.
+
+### Operação de GET
+
+Componente *BurgerForm.vue*:
+
+```javascript
+async getIngredientes() {
+  apiService.get('/ingredientes').then((res) => {
+    this.paes = res.data.paes;
+    this.carnes = res.data.carnes;
+    this.opcionais_data = res.data.opcionais;
+  }).catch((e) => {
+    console.error(e)
+  })
+
+  /*
+  Equivale a:
+  
+  try {
+    const res = apiService.get('/ingredientes')
+    this.paes = res.data.paes;
+    this.carnes = res.data.carnes;
+    this.opcionais_data = res.data.opcionais;
+  } catch (e) {
+    console.error(e)
+  }
+  */
+},
+```
+
+### Operação de POST
+
+Componente *BurgerForm.vue*:
+
+```javascript
+async createBurger(event) {
+  // ...
+  const res = await apiService.post('/burgers', data)
+  // ...
+  this.sendMessage(`Pedido número ${res.data.id} realizado com sucesso`)
+},
+```
+
+### Operação de PATCH
+
+Componente *Dashboard.vue*:
+
+```javascript
+async updateBurger(event, burgerId) {
+  // ...
+  const res = await apiService.patch(`/burgers/${burgerId}`, data)
+  // ...
+  this.sendMessage(`Pedido número ${res.data.id} atualizado para ${res.data.status} com sucesso.`)
+}
+```
+
+### Operação de DELETE
+
+Componente *Dashboard.vue*:
+
+```javascript
+async deleteBurger(burgerId) {
+  await apiService.delete(`/burgers/${burgerId}`)
+  this.sendMessage(`Pedido número ${burgerId} removido com sucesso`)
+  // ...
+},
+```

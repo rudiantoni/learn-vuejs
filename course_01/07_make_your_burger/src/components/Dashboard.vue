@@ -1,4 +1,5 @@
 <template>
+  <Message ref="msg" />
   <div id="burger-table">
 
     <div>
@@ -45,61 +46,56 @@
 </template>
 
 <script>
+import Message from './Message.vue'
+import { apiService } from '../utils/apiService';
+
 export default {
   name: 'Dashboard',
-
-  data() {
-    return {
-      burgers: [],
-      burgerId: null,
-      status: [],
-      burgerStatus: null
-    }
+  components: {
+    Message
   },
   methods: {
     async getPedidos() {
-      const req = await fetch('http://localhost:3000/burgers')
-      const data = await req.json()
-      this.burgers = data;
+      const res = await apiService.get('/burgers')
+      this.burgers = res.data;
     },
     async getStatus() {
-      const req = await fetch('http://localhost:3000/status')
-      const data = await req.json()
-      this.status = data;
+      const res = await apiService.get('/status')
+      this.status = res.data;
     },
     async deleteBurger(burgerId) {
-      const url = `http://localhost:3000/burgers/${burgerId}`
-      const config = {
-        method: 'DELETE'
-      }
-      const req = await fetch(url, config)
-      const res = await req.json()
-
-      //TODO: msg de cancelamento
+      await apiService.delete(`/burgers/${burgerId}`)
+      
+      this.sendMessage(`Pedido número ${burgerId} removido com sucesso`)
 
       this.getPedidos();
 
     },
     async updateBurger(event, burgerId) {      
       const option = event.target.value
-      const dataJsonStr = JSON.stringify({status: option})
+      const data = {status: option}
 
-      const url = `http://localhost:3000/burgers/${burgerId}`
-      const config = {
-        method: 'PATCH',
-        headers: {
-          'content-type': 'application/json'
-        },
-        body: dataJsonStr
-      }
+      const res = await apiService.patch(`/burgers/${burgerId}`, data)
 
-      const req = await fetch(url, config);
-      const res = await req.json();
+      this.sendMessage(`Pedido número ${res.data.id} atualizado para ${res.data.status} com sucesso.`)
+
+    },
+    sendMessage(message) {
+      this.$refs.msg.send(message)
     }
   },
   mounted() {
     this.getPedidos();
     this.getStatus();
+  },
+  data() {
+    return {
+      burgers: [],
+      burgerId: null,
+      status: [],
+      burgerStatus: null,
+      msg: null
+    }
   }
 }
 </script>

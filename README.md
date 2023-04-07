@@ -86,14 +86,5 @@ Este curso foi feito através do conteúdo apresentado no site [Youtube](http://
       - [Curso de Vue 3: #30 - Recebendo os status dos pedidos](https://www.youtube.com/watch?v=a7Z-hoIfAnE&ab_channel=MatheusBattisti-HoradeCodar)
       - [Curso de Vue 3: #31 - Removendo pedidos do sistema](https://www.youtube.com/watch?v=u8Nb1SBX-GQ&ab_channel=MatheusBattisti-HoradeCodar)
       - [Curso de Vue 3: #32 - Atualização de pedidos](https://www.youtube.com/watch?v=_i-vRSlKgkI&ab_channel=MatheusBattisti-HoradeCodar)
-      - []()
-      - []()
-      - []()
-      - []()
-      - []()
-      - []()
-
-
-  
-
-
+      - [Curso de Vue 3: #33 - Mensagens nas atualizações e remoções de pedido](https://www.youtube.com/watch?v=Rq51X_-0QaU&ab_channel=MatheusBattisti-HoradeCodar)
+      - [Curso de Vue 3: #34 - Conclusão do curso](https://www.youtube.com/watch?v=DU2mQusXf-s&ab_channel=MatheusBattisti-HoradeCodar)

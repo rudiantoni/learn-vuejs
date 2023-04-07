@@ -1,13 +1,31 @@
 <template>
-  <div class="message-container">
-    <p>{{ msg }}</p>
+  <div class="message-container" v-show="message">
+    <p>{{ message }}</p>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Message',
-  props: ['msg']
+  data() {
+    return {
+      message: null,
+      timeout: null
+    }
+  },
+  methods: {
+    send(msg) {
+      const oldTimeout = this.timeout
+
+      this.message = msg
+      this.timeout = setTimeout(() => this.message = null, 3000)
+      
+      if (oldTimeout) {
+        clearTimeout(oldTimeout)
+      }
+    }
+  },
+  expose: ['send']
 }
 </script>
 

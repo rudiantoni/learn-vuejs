@@ -1,5 +1,5 @@
 <template>
-  <Message :msg="msg" v-show="msg" />
+  <Message ref="msg" />
   <form id="burger-form" @submit="createBurger">
 
     <div class="input-container">
@@ -40,6 +40,7 @@
 
 <script>
 import Message from './Message.vue';
+import { apiService } from '../utils/apiService';
 
 export default {
   name: 'BurgerForm',
@@ -53,7 +54,6 @@ export default {
       carne: 'default',
       opcionais: [],
       status: 'Solicitado',
-      msg: null
     };
   },
   mounted() {
@@ -61,17 +61,29 @@ export default {
   },
   methods: {
     async getIngredientes() {
-      const req = await fetch('http://localhost:3000/ingredientes');
-      const data = await req.json();
-      this.paes = data.paes;
-      this.carnes = data.carnes;
-      this.opcionais_data = data.opcionais;
+      apiService.get('/ingredientes').then((res) => {
+        this.paes = res.data.paes;
+        this.carnes = res.data.carnes;
+        this.opcionais_data = res.data.opcionais;
+      }).catch((e) => {
+        console.error(e)
+      })
+
+      /*
+      Equivale a:
+      
+      try {
+        const res = apiService.get('/ingredientes')
+        this.paes = res.data.paes;
+        this.carnes = res.data.carnes;
+        this.opcionais_data = res.data.opcionais;
+      } catch (e) {
+        console.error(e)
+      }
+      */
     },
     async createBurger(event) {
       event.preventDefault();
-      // É necessário converter o array do Proxy Array para um array normal do JS
-      //opcionais: [...this.opcionais],
-      //opcionais: Array.from(this.opcionais),
       const data = {
         nome: this.nome,
         pao: this.pao,
@@ -79,22 +91,20 @@ export default {
         opcionais: [...this.opcionais],
         status: this.status
       };
-      const dataJson = JSON.stringify(data);
-      const req = await fetch('http://localhost:3000/burgers', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: dataJson
-      });
-      const res = await req.json();
+
+      const res = await apiService.post('/burgers', data)
+
       this.nome = null;
       this.pao = 'default';
       this.carne = 'default';
       this.opcionais = [];
 
-      this.msg = `Pedido número ${res.id} realizado com sucesso`
-
-      setTimeout(() => this.msg = '', 3000)
+      this.sendMessage(`Pedido número ${res.data.id} realizado com sucesso`)
+    },
+    sendMessage(message) {
+      this.$refs.msg.send(message)
     }
+
   },
   components: {
     Message

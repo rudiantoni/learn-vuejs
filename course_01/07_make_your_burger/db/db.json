@@ -83,39 +83,6 @@
   ],
   "burgers": [
     {
-      "nome": "Aula",
-      "pao": "Italiano Branco",
-      "carne": "Maminha",
-      "opcionais": [
-        "Salame",
-        "Cheddar"
-      ],
-      "status": "Em produção",
-      "id": 2
-    },
-    {
-      "nome": "Maria",
-      "pao": "3 Queijos",
-      "carne": "Alcatra",
-      "opcionais": [
-        "Cheddar",
-        "Tomate"
-      ],
-      "status": "Solicitado",
-      "id": 5
-    },
-    {
-      "nome": "Zenildo",
-      "pao": "Pão Mexicano",
-      "carne": "Alcatra",
-      "opcionais": [
-        "Bacon",
-        "Cebola roxa"
-      ],
-      "status": "Solicitado",
-      "id": 6
-    },
-    {
       "nome": "Jurandir",
       "pao": "3 Queijos",
       "carne": "Alcatra",
@@ -125,6 +92,73 @@
       ],
       "status": "Em produção",
       "id": 7
+    },
+    {
+      "nome": "teste",
+      "pao": "3 Queijos",
+      "carne": "Alcatra",
+      "opcionais": [
+        "Cebola roxa",
+        "Salame"
+      ],
+      "status": "Solicitado",
+      "id": 8
+    },
+    {
+      "nome": "asd",
+      "pao": "Parmesão e Orégano",
+      "carne": "Maminha",
+      "opcionais": [
+        "Bacon",
+        "Pepino"
+      ],
+      "status": "Solicitado",
+      "id": 10
+    },
+    {
+      "nome": "Rudi Teste",
+      "pao": "3 Queijos",
+      "carne": "Alcatra",
+      "opcionais": [
+        "Bacon",
+        "Salame"
+      ],
+      "status": "Solicitado",
+      "id": 11
+    },
+    {
+      "nome": "Teste POST",
+      "pao": "3 Queijos",
+      "carne": "Alcatra",
+      "opcionais": [
+        "Bacon",
+        "Tomate",
+        "Cheddar"
+      ],
+      "status": "Solicitado",
+      "id": 12
+    },
+    {
+      "nome": "Teste POST 2",
+      "pao": "Parmesão e Orégano",
+      "carne": "Alcatra",
+      "opcionais": [
+        "Bacon",
+        "Cheddar"
+      ],
+      "status": "Solicitado",
+      "id": 13
+    },
+    {
+      "nome": "Teste POST 3",
+      "pao": "Pão Mexicano",
+      "carne": "Veggie burger",
+      "opcionais": [
+        "Tomate",
+        "Pepino"
+      ],
+      "status": "Solicitado",
+      "id": 14
     }
   ]
 }
