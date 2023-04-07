@@ -27,6 +27,7 @@ Todos os projetos desenvolvidos possuem o objetivo único de aprender e praticar
     - Projeto: [06_advanced_components](./course_01/06_advanced_components/)
   - **Projeto do curso**
     - [Início do projeto, prototipação de API com JSON Server, Router e layout base](./course_01/docs/07_course_project.md)
+    - [HTTP GET para popular dados dinamicamente e POST no banco e componente de mensagens](./course_01/docs/07a_course_project.md)
       - Projeto: [07_make_your_burger](./course_01/07_make_your_burger/)
 
 ### Observações
@@ -75,10 +76,11 @@ Este curso foi feito através do conteúdo apresentado no site [Youtube](http://
       - [Curso de Vue 3: #22 - Finalizando cabeçado e rodapé do projeto](https://www.youtube.com/watch?v=UyOv6PTY50Y&ab_channel=MatheusBattisti-HoradeCodar)
       - [Curso de Vue 3: #23 - Criando banner da aplicação](https://www.youtube.com/watch?v=ihCBurkrFyc&ab_channel=MatheusBattisti-HoradeCodar)
       - [Curso de Vue 3: #24 - Criando formulário de cadastro](https://www.youtube.com/watch?v=mCfqTo9LdL8&ab_channel=MatheusBattisti-HoradeCodar)
-    - nome_aula
+    - HTTP GET para popular dados dinamicamente e POST no banco e componente de mensagens
       - [Curso de Vue 3: #25 - Resgatando dados do banco e inserindo no formulário](https://www.youtube.com/watch?v=DxYc2CUan_4&ab_channel=MatheusBattisti-HoradeCodar)
       - [Curso de Vue 3: #26 - Inserindo dados no banco](https://www.youtube.com/watch?v=Z5eTqFtCZHk&ab_channel=MatheusBattisti-HoradeCodar)
       - [Curso de Vue 3: #27 - Criando componente de mensagens do sistema](https://www.youtube.com/watch?v=5WXWoe2t_00&ab_channel=MatheusBattisti-HoradeCodar)
+    - nome_aula
       - [Curso de Vue 3: #28 - Criando a tela de pedidos (Dashboard)](https://www.youtube.com/watch?v=a5ALeXKWGJM&ab_channel=MatheusBattisti-HoradeCodar)
       - [Curso de Vue 3: #29 - Resgatando pedidos do banco](https://www.youtube.com/watch?v=noQdE8weGv4&ab_channel=MatheusBattisti-HoradeCodar)
       - []()
