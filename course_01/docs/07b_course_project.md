@@ -134,3 +134,54 @@ select {
 
 ## Resgatando pedidos do banco
 
+Agora vamos resgatar os pedidos que haviam sido gerados no banco, na rota */burgers* e popular a lista que criamos anteriormente.
+
+*Dashboard.vue*
+
+```javascript
+export default {
+  //...
+    data() {
+    return {
+      burgers: null,
+      burgerId: null,
+      status: []
+    }
+  },
+  methods: {
+    async getPedidos() {
+      const req = await fetch('http://localhost:3000/burgers')
+      const data = await req.json()
+      this.burgers = data;
+    }
+  },
+  mounted() {
+    this.getPedidos();
+  }
+  //...
+}
+```
+
+Para popular os dados no template HTML que criamos anteriormente:
+
+```html
+<!-- ... -->
+<div id="burger-table-rows">
+  <div class="burger-table-row"
+    v-show="burgers && burgers.length > 0"
+    v-for="burgerItem in burgers" :key="burgerItem.id"
+    >
+    <div class="order-number">{{ burgerItem.id }}</div>
+    <div>{{ burgerItem.nome }}</div>
+    <div>{{ burgerItem.pao }}</div>
+    <div>{{ burgerItem.carne }}</div>
+    <div>
+      <ul v-show="burgerItem.opcionais && burgerItem.opcionais.length > 0">
+        <li v-for="opcionalItem, i in burgerItem.opcionais" :key="i">{{ opcionalItem }}</li>
+      </ul>
+    </div>
+    <!-- ... -->
+  </div>
+  <!-- ... -->
+</div>
+```
