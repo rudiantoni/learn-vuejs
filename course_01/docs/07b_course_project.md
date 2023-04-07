@@ -1,7 +1,17 @@
-# Título
+# Criando tela de Dashboard, GET, DELETE e PATCH com fetch(), componente de Mensagem com $refs e GET, POST, PATCH e DELETE
 
 - Conteúdo
-  - [atualizar](atualizar)
+  - [Criando a tela de pedidos (Dashboard)](#criando-a-tela-de-pedidos-dashboard)
+  - [HTTP GET e DOM: Resgatando pedidos do banco](#http-get-e-dom-resgatando-pedidos-do-banco)
+  - [HTTP GET e DOM: Recebendo os status dos pedidos](#http-get-e-dom-recebendo-os-status-dos-pedidos)
+  - [HTTP DELETE: Removendo pedidos do sistema](#http-delete-removendo-pedidos-do-sistema)
+  - [HTTP PATCH: Atualização de pedidos](#http-patch-atualização-de-pedidos)
+  - [Mensagens nas atualizações e remoções de pedido, chamado com $refs](#mensagens-nas-atualizações-e-remoções-de-pedido-chamado-com-refs)
+  - [Conclusão do curso: Criando API util](#conclusão-do-curso-criando-api-util)
+    - [Operação de GET](#operação-de-get)
+    - [Operação de POST](#operação-de-post)
+    - [Operação de PATCH](#operação-de-patch)
+    - [Operação de DELETE](#operação-de-delete)
 
 ## Criando a tela de pedidos (Dashboard)
 
