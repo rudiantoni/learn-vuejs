@@ -132,7 +132,7 @@ select {
 }
 ```
 
-## Resgatando pedidos do banco
+## HTTP GET e DOM: Resgatando pedidos do banco
 
 Agora vamos resgatar os pedidos que haviam sido gerados no banco, na rota */burgers* e popular a lista que criamos anteriormente.
 
@@ -186,7 +186,7 @@ Para popular os dados no template HTML que criamos anteriormente:
 </div>
 ```
 
-## Recebendo os status dos pedidos
+## HTTP GET e DOM: Recebendo os status dos pedidos
 
 Primeiramente, trazer os dados do banco de dados:
 
@@ -234,9 +234,9 @@ Como esse select ainda está dentro do loop do *burgerItem*, da lista *burgers*,
 <!-- ... -->
 ```
 
-## Removendo pedidos do sistema
+## HTTP DELETE: Removendo pedidos do sistema
 
-Para remover um pedido do sistema, normalmente enviamos uma requisição HTTP DELETE para a API que estamos utilizando, informando o dado que a identifica como um registro único que, no nosso caso é o campo *id*. Sendo assim, basta adicionarmos um evento de clique no botão de cancelar que enviará o id atual (lembre-se que o botão está dentro do loop de burgers então ele tem acesso a essa propriedade) para um método do componente, este fará uma requisição DELETE para a api:
+Para remover um pedido do sistema, normalmente enviamos uma requisição HTTP DELETE para a API que estamos utilizando, informando o dado que a identifica como um registro único que, no nosso caso é o campo *id*. Sendo assim, basta adicionarmos um evento de clique no botão de cancelar que enviará o id atual (lembre-se que o botão está dentro do loop de burgers então ele tem acesso a essa propriedade) para um método do componente, este fará uma requisição DELETE para a API:
 
 ```html
 <!-- ... -->
@@ -244,5 +244,60 @@ Para remover um pedido do sistema, normalmente enviamos uma requisição HTTP DE
 <!-- ... -->
 ```
 
-## Atualização de pedidos
+```javascript
+export default {
+  name: 'Dashboard',
+  //..
+  methods: {
+    //..
+    async deleteBurger(burgerId) {
+      const url = `http://localhost:3000/burgers/${burgerId}`
+      const config = {
+        method: 'DELETE'
+      }
+      const req = await fetch(url, config)
+      const res = await req.json()
 
+      this.getPedidos();
+
+    },
+  //...
+}
+```
+
+## HTTP PATCH: Atualização de pedidos
+
+Nessa parte vamos atualizar o status de um pedido quando o campo de status for alterado. Como não vamos atualizar o recurso inteiro, o padrão é que se envie uma requisição PATCH:
+
+```html
+<!-- ... -->
+<select name="status" class="status" @change="updateBurger($event, burgerItem.id)">
+<!-- ... -->
+```
+
+```javascript
+export default {
+  name: 'Dashboard',
+  //...
+  methods: {
+    //...
+    async updateBurger(event, burgerId) {      
+      const option = event.target.value
+      const dataJsonStr = JSON.stringify({status: option})
+
+      const url = `http://localhost:3000/burgers/${burgerId}`
+      const config = {
+        method: 'PATCH',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: dataJsonStr
+      }
+
+      const req = await fetch(url, config);
+      const res = await req.json();
+    }
+  },
+  //...
+}
+```

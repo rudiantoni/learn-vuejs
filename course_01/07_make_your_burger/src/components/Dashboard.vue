@@ -28,10 +28,9 @@
         </div>
 
         <div>
-          <select name="status" class="status">
-            <option value="default">Selecione</option>
+          <select name="status" class="status" @change="updateBurger($event, burgerItem.id)">
             <option
-              v-for="item in status" :key="item.id" value="item.tipo"
+              v-for="item in status" :key="item.id" :value="item.tipo"
               :selected="burgerItem.status === item.tipo">
               {{ item.tipo }}
             </option>
@@ -80,6 +79,22 @@ export default {
 
       this.getPedidos();
 
+    },
+    async updateBurger(event, burgerId) {      
+      const option = event.target.value
+      const dataJsonStr = JSON.stringify({status: option})
+
+      const url = `http://localhost:3000/burgers/${burgerId}`
+      const config = {
+        method: 'PATCH',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: dataJsonStr
+      }
+
+      const req = await fetch(url, config);
+      const res = await req.json();
     }
   },
   mounted() {

@@ -1,13 +1,13 @@
 # HTTP GET para popular dados dinamicamente e POST no banco e componente de mensagens
 
 - Conteúdo
-  - [Resgatando dados do banco e inserindo no formulário](#resgatando-dados-do-banco-e-inserindo-no-formulário)
+  - [HTTP GET e DOM: Resgatando dados do banco e inserindo no formulário](#resgatando-dados-do-banco-e-inserindo-no-formulário)
     - [Criando as variáveis, método assíncrono (async) e chamado ao montar o componente no lifecycle hook mounted()](#criando-as-variáveis-método-assíncrono-async-e-chamado-ao-montar-o-componente-no-lifecycle-hook-mounted)
     - [Populando o template com os dados recebidos](#populando-o-template-com-os-dados-recebidos)
-  - [Inserindo dados no banco](#inserindo-dados-no-banco)
+  - [HTTP POST: Inserindo dados no banco](#inserindo-dados-no-banco)
   - [Criando componente de mensagens do sistema](#criando-componente-de-mensagens-do-sistema)
 
-## Resgatando dados do banco e inserindo no formulário
+## HTTP GET e DOM: Resgatando dados do banco e inserindo no formulário
 
 ### Criando as variáveis, método assíncrono (async) e chamado ao montar o componente no lifecycle hook mounted()
 
@@ -83,7 +83,7 @@ Nesse caso, a variável *opcionais* ficará com o resultado das escolhas selecio
 <!-- ... -->
 ```
 
-## Inserindo dados no banco
+## HTTP POST: Inserindo dados no banco
 
 Para inserir os dados no banco, vamos primeiro criar um evento no *form*, para que, quando o formulário seja enviado, seja executada a função *createBurger()*:
 
@@ -122,6 +122,14 @@ async createBurger(event) {
 
   const dataJson = JSON.stringify(data)
 
+  // Aqui não foi feito, mas normalmente se usam variáveis para setar a url e as configurações da requisição:
+  // const url = http://localhost:3000/burgers
+  // const config = {
+  //   method: 'POST',
+  //   headers: { 'Content-Type': 'application/json' },
+  //   body: dataJson
+  // }
+  // const req = await fetch(url, config)
   const req = await fetch('http://localhost:3000/burgers', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

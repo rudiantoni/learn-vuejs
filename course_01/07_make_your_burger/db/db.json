@@ -90,7 +90,7 @@
         "Salame",
         "Cheddar"
       ],
-      "status": "Solicitado",
+      "status": "Em produção",
       "id": 2
     },
     {
@@ -114,6 +114,17 @@
       ],
       "status": "Solicitado",
       "id": 6
+    },
+    {
+      "nome": "Jurandir",
+      "pao": "3 Queijos",
+      "carne": "Alcatra",
+      "opcionais": [
+        "Bacon",
+        "Pepino"
+      ],
+      "status": "Em produção",
+      "id": 7
     }
   ]
 }
